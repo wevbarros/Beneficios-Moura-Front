@@ -1,0 +1,12 @@
+.semBorda {
+  border: none;
+  border-style: none;
+}
+
+.semBorda:focus {
+  box-shadow: none;
+}
+
+.navBar {
+  background: linear-gradient(90deg, rgba(176,63,251,1) 6%, rgba(215,67,194,1) 53%, rgba(220,67,186,1) 65%, rgba(225,67,179,1) 79%, rgba(198,70,252,1) 100%);
+}
