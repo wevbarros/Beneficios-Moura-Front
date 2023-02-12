@@ -7,7 +7,6 @@ import NavBar from '../components/NavBar'
 import CardChakra from '../components/CardChakra'
 import FooterChakra from '../components/FooterChakra'
 import { api } from '../services/api';
-import { IBeneficio } from '../dtos/IBeneficio';
 
 export default function Index() {
   return (

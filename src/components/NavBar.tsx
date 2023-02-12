@@ -1,6 +1,7 @@
 import { FaBuffer } from "react-icons/fa";
 import Link from 'next/link'
 import styles from "./NavBar.module.css";
+import Script from "next/script";
 
 export default function NavBar() {
   return (
