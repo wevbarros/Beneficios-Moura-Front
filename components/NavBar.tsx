@@ -1,4 +1,5 @@
 import { FaBuffer } from "react-icons/fa";
+import Link from 'next/link'
 import styles from "./NavBar.module.css";
 
 export default function NavBar() {
@@ -31,6 +32,9 @@ export default function NavBar() {
             <a className="nav-link" href="#">
               Conveniência
             </a>
+          </li>
+          <li className="nav-item">
+             <Link className="nav-link" href="/beneficios">Benefícios</Link>
           </li>
         </ul>
         <a className="btn btn-outline-light md-2 rounded-5 px-4" role="button" href="#">

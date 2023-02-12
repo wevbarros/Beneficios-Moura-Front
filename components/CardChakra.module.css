@@ -1,9 +1,9 @@
-.cardButton{
+.pinkButton{
   background-color: #fff;
   color: #c842d7;
 }
 
-.cardButton:hover{
+.pinkButton:hover{
   background-color: #c842d7 !important;
   color: #fff !important;
   border-color: #c842d7;
