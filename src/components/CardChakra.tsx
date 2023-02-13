@@ -13,7 +13,7 @@ export default function CardChakra({ id, title, description }: { id: Number; tit
       <CardBody mt="-8">
         <Text>{description}</Text>
           <Link href={`beneficio/${id}`}>
-            <Button className={styles.pinkButton} mt="2" colorScheme={"pink"} variant="outline" rounded="3xl">Acessar</Button>
+            <Button className={styles.BlueButton} mt="2" colorScheme={"blue"} variant="outline" rounded="3xl">Acessar</Button>
           </Link>
       </CardBody>
     </Card>

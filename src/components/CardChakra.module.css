@@ -1,10 +1,10 @@
-.pinkButton{
+.BlueButton{
   background-color: #fff;
-  color: #c842d7;
+  color: #72baf4;
 }
 
-.pinkButton:hover{
-  background-color: #c842d7 !important;
+.BlueButton:hover{
+  background-color: #72baf4 !important;
   color: #fff !important;
-  border-color: #c842d7;
+  border-color: #72baf4;
 }

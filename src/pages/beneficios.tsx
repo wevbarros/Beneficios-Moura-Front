@@ -9,10 +9,13 @@ import FooterChakra from '../components/FooterChakra'
 import { api } from '../services/api';
 import { useEffect, useState } from 'react';
 import { IBeneficio } from '../dtos/IBeneficio';
+import CardSkeleton from '../components/CardSkeleton'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Beneficios() {
+  const { isReady } = useRouter();
   const [beneficios, setBeneficios] = useState<IBeneficio[]>([]);
 
   async function getBeneficios() {
@@ -39,9 +42,27 @@ export default function Beneficios() {
         <NavBar />
         <div className="container min-vh-100">
 
-          {beneficios.map((beneficio) => (
-            <CardChakra key={Number(beneficio.id)} title={beneficio.title} description={beneficio.description} id={Number(beneficio.id)}/>
-          ))}
+          {beneficios.length > 0 ? (
+            beneficios.map((beneficio) => (
+              <CardChakra
+              key={Number(beneficio.id)}
+                title={String(beneficio?.title)}
+                description={String(beneficio?.description)}
+                id={Number(beneficio?.id)}
+              />
+            ))
+          ) : (
+            <>
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+            </>
+          )}
+
 
         </div>
         <FooterChakra />

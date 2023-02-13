@@ -8,5 +8,5 @@
 }
 
 .navBar {
-  background: linear-gradient(90deg, rgba(176,63,251,1) 6%, rgba(215,67,194,1) 53%, rgba(220,67,186,1) 65%, rgba(225,67,179,1) 79%, rgba(198,70,252,1) 100%);
+  background: linear-gradient(90deg, rgb(63, 163, 251) 6%, rgb(16, 102, 242) 53%, rgb(81, 155, 220) 65%, rgb(115, 188, 244) 79%, rgb(81, 169, 235) 100%);
 }
