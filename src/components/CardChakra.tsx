@@ -4,7 +4,7 @@ import styles from "./CardChakra.module.css";
 
 export default function CardChakra({ id, title, description }: { id: Number; title: String; description: String }) {
   return (
-    <Card border="1px" my="10" borderColor="blackAlpha.400">
+    <Card border="1px" my="5" mx="5" width="20vw" height="10vhs" borderColor="blackAlpha.400">
       <CardHeader>
         <Heading size="sm" fontWeight="normal">
           {title}

@@ -1,0 +1,15 @@
+.cardCategoria {
+  height: 30vh;
+  width: 30vh;
+  margin-left: 6vw;
+  margin-right: 6vw;
+}
+
+@media only screen and (max-width: 480px) {
+  .cardCategoria {
+    height: 14vh;
+    width: 14vh;
+  }
+}
+
+/*Como diminuir o espaço do wrap*/
