@@ -5,6 +5,10 @@
   margin-right: 6vw;
 }
 
+.card {
+  flex: 0 0 auto;
+}
+
 @media only screen and (max-width: 480px) {
   .cardCategoria {
     height: 14vh;

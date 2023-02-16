@@ -6,14 +6,14 @@ import styles from './SideScroll.module.css';
 export default function SideScroll() { 
   return ( 
     <>
-      <Flex flexDirection="column" bgColor={'#227cf6'}>
-        <Text marginTop="1" color="#fff">Alimentação</Text>
-        <Flex marginTop="-1" flexDirection="row" height="27vh" bgColor={'#227cf6'}>
-          <CardCategoria title="Alimentação" category="alimentacao" />
-          <CardCategoria title="Alimentação" category="alimentacao" />
-          <CardCategoria title="Alimentação" category="alimentacao" />
-          <CardCategoria title="Alimentação" category="alimentacao" />
-          <CardCategoria title="Alimentação" category="alimentacao" />
+      <Flex flexDirection="column">
+        <Text marginLeft={{ base: "4vw", md: "4vw", lg: "1vw"}} marginTop="1" color="#fff">Alimentação</Text>
+        <Flex className={`${styles.sideScroll}`}>
+          <CardCategoria title="Cartão 1" category="alimentacao" />
+          <CardCategoria title="Cartão 2" category="alimentacao" />
+          <CardCategoria title="Cartão 3" category="alimentacao" />
+          <CardCategoria title="Cartão 4" category="alimentacao" />
+          <CardCategoria title="Cartão 5" category="alimentacao" />
         </Flex>
       </Flex>
     </>

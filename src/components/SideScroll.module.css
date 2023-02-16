@@ -1,4 +1,16 @@
-.hidden {
-  overflow: hidden !important;
-  background-color: red ;
+.sideScroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 0% 0%;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 480px) {
+  .sideScroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0% 3%;
+  }
 }
