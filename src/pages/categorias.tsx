@@ -7,6 +7,7 @@ import CardCategoria from '../components/CardCategoria'
 import { Flex } from '@chakra-ui/react';
 import CaptionCarousel from '../components/Carousel'
 import SideScroll from '../components/SideScroll'
+import styles from '../styles/Categorias.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +26,12 @@ export default function Beneficios() {
         <Flex>
           <CaptionCarousel />
         </Flex>
-        <SideScroll />
+        <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul}>
+          <SideScroll />
+          <SideScroll />
+          <SideScroll />
+          <SideScroll />
+        </Flex>
       </main>
     </>
   )
