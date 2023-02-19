@@ -10,26 +10,13 @@ import { api } from '../services/api';
 import { useEffect, useState } from 'react';
 import { IBeneficio } from '../dtos/IBeneficio';
 import CardSkeleton from '../components/CardSkeleton'
-import { useRouter } from 'next/router'
+import { useBeneficiosController } from '../controllers/BeneficiosController'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Beneficios() {
-  const { isReady } = useRouter();
-  const [beneficios, setBeneficios] = useState<IBeneficio[]>([]);
+  const { beneficios } = useBeneficiosController();
 
-  async function getBeneficios() {
-    try {
-      const response = await api.get('/beneficios');
-      setBeneficios(response.data);      
-    } catch (error) {
-      console.log(error);
-    }
-  }
-    useEffect(() => {
-      getBeneficios();
-    }, []);
-    
   return (
     <>
       <Head>

@@ -4,6 +4,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Script from 'next/script';
 
 import type { AppProps } from 'next/app'
+import Head from 'next/head';
+import Link from 'next/link';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

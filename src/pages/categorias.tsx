@@ -8,11 +8,16 @@ import { Flex } from '@chakra-ui/react';
 import CaptionCarousel from '../components/Carousel'
 import SideScroll from '../components/SideScroll'
 import styles from '../styles/Categorias.module.css'
+import { useBeneficiosController } from '../controllers/BeneficiosController'
+import { IBeneficio } from '../dtos/IBeneficio'
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Beneficios() {
-    
+  const { beneficios } = useBeneficiosController()
+  const beneficiosByCategory = JSON.parse(JSON.stringify(useBeneficiosController().agruparBeneficiosPorCategoria(beneficios)))
+  
   return (
     <>
       <Head>
@@ -27,10 +32,10 @@ export default function Beneficios() {
           <CaptionCarousel />
         </Flex>
         <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul}>
-          <SideScroll />
-          <SideScroll />
-          <SideScroll />
-          <SideScroll />
+          <SideScroll title='Vale Refeição' category='Alimentação' id='1' />
+          <SideScroll title='Auxílio Leite' category='Mobilidade e Moradia' id='2'/>
+          <SideScroll title='Cesta Básica' category='Saúde e Seguros' id='3'/>
+          <SideScroll title='Ultragaz' category='Educação' id='5'/>
         </Flex>
       </main>
     </>

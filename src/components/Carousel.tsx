@@ -7,11 +7,14 @@ import {
   Heading,
   Text,
   Container,
+  Flex,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 // And react-slick as our Carousel Lib
 import Slider from "react-slick";
+
+import Image from "next/image";
 
 // Settings for the slider
 const settings = {
@@ -43,28 +46,28 @@ export default function CaptionCarousel() {
       title: "TotalPass",
       text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://listenx.com.br/blog/wp-content/uploads/2020/01/original-81f15d95efad8c272364a18694ef916d-1200x675.jpeg",
+        '/images/carousel/totalpass.jpg',
     },
     {
       title: "Vale refeição",
       text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://listenx.com.br/blog/wp-content/uploads/2020/01/original-81f15d95efad8c272364a18694ef916d-1200x675.jpeg",
+      '/images/carousel/valerefeicao.jpg',
     },
     {
-      title: "Cesta Básica",
+      title: "Kit escolar",
       text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://www.selecoes.com.br/media/_versions/legacy/0/8/314d6c06a732cd4667940157590a62532e3b1930_widexl.jpg",
+      '/images/carousel/kitescolar.jpg',
     },
   ];
 
   return (
     <Box
       position={"relative"}
-      height={"60vh"}
+      height={{ base: "60vh", md: "65vh", lg: "60vh" }}
       width={"full"}
-      overflow={"hidden"}
+      overflowY={"hidden"}
     >
       {/* CSS files for react-slick */}
       <link
@@ -89,7 +92,7 @@ export default function CaptionCarousel() {
         zIndex={2}
         onClick={() => slider?.slickPrev()}
       >
-        <BiLeftArrowAlt size="40px" />
+        <BiLeftArrowAlt size="40px" color="#fff" />
       </IconButton>
       {/* Right Icon */}
       <IconButton
@@ -102,20 +105,20 @@ export default function CaptionCarousel() {
         zIndex={2}
         onClick={() => slider?.slickNext()}
       >
-        <BiRightArrowAlt size="40px" />
+        <BiRightArrowAlt size="40px" color="#fff" />
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={"6xl"}
+            height={"2xl"}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}
-          >
+         >
             {/* This is the block you need to change, to customize the caption */}
             <Container
               size="container.lg"
@@ -133,15 +136,15 @@ export default function CaptionCarousel() {
                 transform="translate(0, -50%)"
               >
                 <Heading
-                  fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+                  fontSize={{ base: "3xl", md: "4xl", lg: "7xl" }}
                   color="#fff"
                   alignSelf={{ base: "center", md: "baseline", lg: "baseline" }}
                 >
                   {card.title}
                 </Heading>
-                <Text fontSize={{ base: "2xl", lg: "lg" }} color="#fff">
-                  {card.text}
-                </Text>
+                  <Text fontSize={{ base: "2xl", md: "md", lg: "lg" }} color="#fff">
+                    {card.text}
+                  </Text>
               </Stack>
             </Container>
           </Box>
