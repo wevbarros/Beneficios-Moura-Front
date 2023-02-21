@@ -23,7 +23,6 @@ export default function CardCategoria({
 }) {
 
   return (
-    <Link href={`#`}>
       <Card
         border="2px"
         rounded={"18"}
@@ -50,13 +49,14 @@ export default function CardCategoria({
           height={{ base: "19vh", md: "20vh", lg: "22vh" }}
           justifyContent="center"
           alignItems="center"
-        >    
-          <Text fontSize={{ base: "xl", md: "4xl", lg: "50" }}>
-            {title}
-          </Text>
+        >  
+          <Link href={`#`}>
+            <Text fontSize={{ base: "xl", md: "4xl", lg: "50" }}>
+              {title}
+            </Text>
+          </Link>
         </Flex>
       </Card>
-    </Link>
   );
 }
 

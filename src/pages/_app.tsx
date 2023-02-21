@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../components/hideScrollbar.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import Script from 'next/script';
 
