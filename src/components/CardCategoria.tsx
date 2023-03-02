@@ -51,7 +51,7 @@ export default function CardCategoria({
           alignItems="center"
         >  
           <Link href={`#`}>
-            <Text fontSize={{ base: "xl", md: "4xl", lg: "50" }}>
+            <Text fontSize={{ base: "medium", md: "4xl", lg: "50" }}>
               {title}
             </Text>
           </Link>

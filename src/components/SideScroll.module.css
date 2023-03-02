@@ -1,9 +1,16 @@
 .sideScroll {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
   margin: 0% 0%;
-  overflow-x: hidden
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  user-select: none;
 }
 
 @media only screen and (max-width: 480px) {
@@ -12,5 +19,17 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     margin: 0% 3%;
+  }
+}
+
+.item {
+  display: inline-block;
+  background: skyblue;
+  min-height: 250px;
+  min-width: 400px;
+  margin: 2em 1em;
+  @media screen and (max-width: 500px) {
+    min-height: 200px;
+    min-width: 200px;
   }
 }
