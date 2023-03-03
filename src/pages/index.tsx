@@ -1,14 +1,18 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css'
 import NavBar from '../components/NavBar'
-import CardChakra from '../components/CardChakra'
 import FooterChakra from '../components/FooterChakra'
-import { api } from '../services/api';
+import CardCategoria from '../components/CardBeneficio'
+import { Flex } from '@chakra-ui/react';
+import CaptionCarousel from '../components/Carousel'
+import SideScroll from '../components/SideScroll'
+import styles from '../styles/Categorias.module.scss'
+import { useBeneficiosController } from '../controllers/BeneficiosController'
 
-export default function Index() {
+export default function Beneficios() {
+  const { beneficios } = useBeneficiosController()
+  
   return (
     <>
       <Head>
@@ -18,11 +22,15 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <NavBar />
-        <div className="container min-vh-100">
-          <h1>Bem Vindo ao Beneficios Moura</h1>
-        </div>
-        <FooterChakra />
+        <Flex>
+          <CaptionCarousel />
+        </Flex>
+        <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul}>
+          <SideScroll title='Vale Refeição' category='Alimentação' id='1' />
+          <SideScroll title='Auxílio Leite' category='Mobilidade e Moradia' id='2'/>
+          <SideScroll title='Cesta Básica' category='Saúde e Seguros' id='3'/>
+          <SideScroll title='Ultragaz' category='Educação' id='5'/>
+        </Flex>
       </main>
     </>
   )

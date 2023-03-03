@@ -26,7 +26,6 @@ export default function Beneficios() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <NavBar />
         <div className="container min-vh-100">
 
           {beneficios.length > 0 ? (

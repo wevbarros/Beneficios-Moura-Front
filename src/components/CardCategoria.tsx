@@ -1,63 +1,18 @@
 import {
-  Button,
   Card,
   CardBody,
-  CardHeader,
-  Heading,
   Text,
   Image,
   Flex,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { FaApple } from "react-icons/fa";
-import styles from "./CardCategoria.module.css";
+import styles from "./CardCategoria.module.scss";
 
-export default function CardCategoria({
-  title,
-  category,
-  url,
-}: {
-  title: String;
-  category: String;
-  url: string;
-}) {
-
+export default function CardCategoria({nome, urlImage} : {nome: String, urlImage: String}) {
   return (
-      <Card
-        border="2px"
-        rounded={"18"}
-        borderColor="#fff"
-        my={{ base: "2", md: "5", lg: "5"}}
-        mx={{ base: "1", md: "5", lg: "5" }}
-        width={{ base: "29vw", md: "35vw", lg: "23vw" }}
-        height={{ base: "19vh", md: "20vh", lg: "22vh" }}
-        opacity="0.5"
-        className={styles.card}
-      >
-        <Image
-          src={url}
-          width={{ base: "29vw", md: "50vw", lg: "30vw" }}
-          height={{ base: "19vh", md: "20vh", lg: "25vh" }}
-          overflow={"hidden"}
-          alt="Card image"
-          rounded={"18"}
-        ></Image>
-        <Flex
-          position={"absolute"}
-          color="#fff"
-          width={{ base: "29vw", md: "35vw", lg: "23vw" }}
-          height={{ base: "19vh", md: "20vh", lg: "22vh" }}
-          justifyContent="center"
-          alignItems="center"
-        >  
-          <Link href={`#`}>
-            <Text fontSize={{ base: "medium", md: "4xl", lg: "50" }}>
-              {title}
-            </Text>
-          </Link>
-        </Flex>
-      </Card>
-  );
-}
+    <Card marginX={{base: -3, md: 2, lg: 3}} className={styles.cardCategoria}>
+      <Image src="https://www.eusemfronteiras.com.br/wp-content/uploads/2017/04/54033405_m-810x540.jpg" width={{ base: "29vw", md: "50vw", lg: "30vw" }} height={{ base: "19vh", md: "20vh", lg: "25vh" }} overflow={"hidden"} alt="Card image" rounded={"18"}></Image>
 
-//como colocar um texto em cima da imagem com next.js
+    </Card>
+  )
+}

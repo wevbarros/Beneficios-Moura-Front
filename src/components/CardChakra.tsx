@@ -1,6 +1,6 @@
 import { Button, Card, CardBody, CardHeader, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import styles from "./CardChakra.module.css";
+import styles from "./CardChakra.module.scss";
 
 export default function CardChakra({ id, title, description }: { id: Number; title: String; description: String }) {
   return (
