@@ -1,11 +1,11 @@
 import {
   Card,
   Text,
-  Image,
   Flex,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import styles from "./CardBeneficio.module.scss";
+import styles from "./styles.module.scss";
+import Image from "next/image";
 
 export default function CardCategoria({
   title,
@@ -31,11 +31,10 @@ export default function CardCategoria({
       >
         <Image
           src={url}
-          width={{ base: "29vw", md: "50vw", lg: "30vw" }}
-          height={{ base: "19vh", md: "20vh", lg: "25vh" }}
-          overflow={"hidden"}
-          alt="Card image"
-          rounded={"18"}
+          width={"300"}
+          height={"250"}
+          alt={String(title)}
+          className={styles.image}
         ></Image>
         <Flex
           position={"absolute"}

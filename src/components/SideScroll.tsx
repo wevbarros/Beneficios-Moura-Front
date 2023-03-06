@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect} from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'; 
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import CardBeneficio from './CardBeneficio';
+import CardBeneficio from './cardBeneficio';
 import styles from './SideScroll.module.scss';
-import useDrag from "./useDrag";
-import usePreventBodyScroll from "./usePreventBodyScroll";
 
 export default function SideScroll({ id, title, category }: { id: string, title: string, category: string}) {
 
@@ -12,17 +10,14 @@ export default function SideScroll({ id, title, category }: { id: string, title:
     <>
       <Flex flexDirection="column">
         <Text fontSize={{ base: "inherit", md: "3xl", lg: "3xl"}} marginLeft={{ base: "4vw", md: "4vw", lg: "1vw"}} marginTop="1" color="#fff">{category}</Text>
-          
           <div className={styles.sideScroll}>
-              <CardBeneficio title={title} category={category} url='https://www.eusemfronteiras.com.br/wp-content/uploads/2017/04/54033405_m-810x540.jpg' />
-              <CardBeneficio title={title} category={category} url='https://www.tribunapr.com.br/wp-content/uploads/2020/08/16145536/jovem-feliz-freepik-ArthurHidden-1.jpg' />
-              <CardBeneficio title={title} category={category} url='https://sociedadedospsicologos.files.wordpress.com/2021/06/natureza.jpg?w=1024' />
-              <CardBeneficio title={title} category={category} url='https://cdn.folhape.com.br/upload/dn_arquivo/2022/03/image-2022-03-21t105334701.jpg' />
-              <CardBeneficio title={title} category={category} url='https://wallpapercave.com/wp/y0CeSA8.png' />
+              <CardBeneficio title={title} category={category} url='https://images.freeimages.com/images/large-previews/4b2/walking-on-the-mountain-1-1566594.jpg' />
+              <CardBeneficio title={title} category={category} url='https://images.freeimages.com/images/large-previews/d41/bear-combat-2-1332988.jpg' />
+              <CardBeneficio title={title} category={category} url='https://images.freeimages.com/images/large-previews/31a/traverse-1234278.jpg' />
+              <CardBeneficio title={title} category={category} url='https://images.freeimages.com/images/large-previews/218/my-dog-cutter-1499799.jpg' />
+              <CardBeneficio title={title} category={category} url='https://image.shutterstock.com/image-photo/mother-tying-daughters-shoelaces-she-260nw-1326683405.jpg' />
           </div>
       </Flex>
     </>
    ); 
-}; 
-
-//queryselector react
+};
