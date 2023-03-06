@@ -3,6 +3,8 @@ name: Build to an Azure Container Registry
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches:   [ "main" ]
   workflow_dispatch:
   
 jobs:
