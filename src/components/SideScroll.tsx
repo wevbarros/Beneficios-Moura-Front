@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect} from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'; 
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import CardBeneficio from './cardBeneficio';
+import CardBeneficio from './cardBeneficioHome';
 import styles from './SideScroll.module.scss';
 
 export default function SideScroll({ id, title, category }: { id: string, title: string, category: string}) {

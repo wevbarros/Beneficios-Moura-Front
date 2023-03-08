@@ -26,7 +26,7 @@ export default function NavBar() {
         <div id="navcol-5" className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto px-2">
             <li className="nav-item">
-              <Link className="nav-link active" href="/">
+              <Link className="nav-link" href="/">
                 Home
               </Link>
             </li>

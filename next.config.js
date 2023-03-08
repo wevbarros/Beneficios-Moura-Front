@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['image.shutterstock.com', 'images.freeimages.com'],
+    domains: ['image.shutterstock.com', 'images.freeimages.com', 'www.eusemfronteiras.com.br',],
   },
 }
 

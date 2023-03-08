@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 
-export default function FooterChakra() {
+export function Footer() {
   return (
     <Flex>
         <Box w='100%' h='24' bgGradient='linear(to-r, #1066f2, #3f8df2)'>

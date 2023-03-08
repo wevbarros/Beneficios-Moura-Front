@@ -5,7 +5,7 @@ import { Spinner, Flex } from "@chakra-ui/react";
 
 import { api } from "../../services/api";
 import { IBeneficio } from "../../dtos/IBeneficio";
-import CardChakra from "../../components/CardChakra";
+import { CardBeneficio } from "../../components/cardBeneficioBeneficios";
 import NavBar from "../../components/NavBar";
 
 export default function Beneficio() {
@@ -38,7 +38,7 @@ export default function Beneficio() {
       <main>
         <div className="container min-vh-100">
           {beneficio ? (
-            <CardChakra
+            <CardBeneficio
               title={String(beneficio?.title)}
               description={String(beneficio?.description)}
               id={Number(beneficio?.id)}
