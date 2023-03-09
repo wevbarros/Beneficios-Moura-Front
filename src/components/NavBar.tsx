@@ -9,12 +9,12 @@ export default function NavBar() {
       className={`navbar navbar-dark navbar-expand-md py-3 ${styles.navBar}`}
     >
       <div className="container">
-        <a className="navbar-brand d-flex align-items-center" href="#">
+        <Link className="navbar-brand d-flex align-items-center" href="/">
           <span className="d-flex justify-content-center align-items-center bs-icon-sm bs-icon-rounded bs-icon-primary me-2 bs-icon">
             <FaBuffer />
           </span>
           <span>benefícios</span>
-        </a>
+        </Link>
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"

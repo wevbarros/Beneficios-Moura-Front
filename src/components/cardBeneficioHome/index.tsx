@@ -26,7 +26,7 @@ export default function CardCategoria({
         mx={{ base: "1", md: "5", lg: "5" }}
         width={{ base: "29vw", md: "35vw", lg: "23vw" }}
         height={{ base: "19vh", md: "20vh", lg: "22vh" }}
-        opacity="0.5"
+        opacity={0.5}
         className={styles.card}
       >
         <Image
