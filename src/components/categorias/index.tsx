@@ -1,6 +1,8 @@
-import { Center, Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Text } from "@chakra-ui/react";
+import { AiOutlineHome } from "react-icons/ai";
 import CardCategoria from "../cardCategoria/index";
 import styles from './styles.module.scss';
+import Link from "next/link";
 
 export function Categorias() {
   return (
@@ -35,9 +37,12 @@ export function Categorias() {
             <CardCategoria nome="Benefícios Corporativos" urlImage="" />
           </GridItem>
         </Grid>
+        <Text display={{base: "flex", md: "none", lg: "none"}} marginTop={"10"}>
+          <Link  href="/">
+            <AiOutlineHome size={32}  color="#fff" />
+          </Link>
+        </Text>
       </Flex>
     </div>
   )
 }
-
-//css inline numa div react
