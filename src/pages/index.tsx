@@ -15,10 +15,10 @@ export default function Beneficios() {
           <CaptionCarousel />
         </Flex>
         <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul}>
-          <SideScroll title='Vale Refeição' category='Alimentação' id='1' />
-          <SideScroll title='Auxílio Leite' category='Mobilidade e Moradia' id='2'/>
-          <SideScroll title='Cesta Básica' category='Saúde e Seguros' id='3'/>
-          <SideScroll title='Ultragaz' category='Educação' id='5'/>
+          <SideScroll />
+          <SideScroll />
+          <SideScroll />
+          <SideScroll />
         </Flex>
       </main>
     </>

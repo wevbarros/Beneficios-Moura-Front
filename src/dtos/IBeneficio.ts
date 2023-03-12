@@ -1,6 +1,7 @@
 export interface IBeneficio {
-    id: string;
-    title: string;
-    description: string;
-    category: string;
+    id: Number;
+    categoria: Number;
+    nome: string;
+    descricao?: string;
+    urlImage: string;
 }

@@ -1,18 +1,19 @@
 import { Button, Card, CardBody, CardHeader, Heading, Text, Stack, Skeleton } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { IBeneficio } from "../../dtos/IBeneficio";
 
-export function CardBeneficio({ id, title, description }: { id: Number; title: String; description: String }) {
+export function CardBeneficio(IBeneficio: IBeneficio) {
   return (
     <Card border="1px" my="10" mx="5" borderColor="blackAlpha.400">
       <CardHeader>
-        <Heading size="sm" fontWeight="normal">
-          {title}
+        <Heading size="xl" fontWeight="normal">
+          {IBeneficio.nome}
         </Heading>
       </CardHeader>
       <CardBody mt="-8">
-        <Text>{description}</Text>
-          <Link href={`beneficio/${id}`}>
+        <Text>{IBeneficio.descricao}</Text>
+          <Link href={`beneficio/${IBeneficio.id}`}>
             <Button className={styles.BlueButton} mt="2" colorScheme={"blue"} variant="outline" rounded="3xl">Acessar</Button>
           </Link>
       </CardBody>

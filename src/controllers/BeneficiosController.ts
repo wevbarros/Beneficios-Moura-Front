@@ -25,27 +25,12 @@ export function useBeneficiosController() {
     }
   }
 
-  function agruparBeneficiosPorCategoria(beneficios: IBeneficio[]) {
-    const beneficiosPorCategoria: BeneficiosPorCategoria = {};
-  
-    beneficios.forEach((beneficio) => {
-      const categoria = beneficio.category;
-      if (!beneficiosPorCategoria[categoria]) {
-        beneficiosPorCategoria[categoria] = [];
-      }
-      beneficiosPorCategoria[categoria].push(beneficio);
-    });
-    return beneficiosPorCategoria;
-  }
-
   useEffect(() => {
       getBeneficios();
-      agruparBeneficiosPorCategoria(beneficios);
   }, []);
 
   return {
     beneficios,
     getBeneficios,
-    agruparBeneficiosPorCategoria,
   };
 }

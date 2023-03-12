@@ -7,15 +7,9 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 
-export default function CardCategoria({
-  title,
-  category,
-  url,
-}: {
-  title: String;
-  category: String;
-  url: string;
-}) {
+import { IBeneficio } from "../../dtos/IBeneficio";
+
+export default function CardCategoria(IBeneficio: IBeneficio) {
 
   return (
       <Card
@@ -30,10 +24,10 @@ export default function CardCategoria({
         className={styles.card}
       >
         <Image
-          src={url}
+          src={'https://images.freeimages.com/images/large-previews/d41/bear-combat-2-1332988.jpg'}
           width={"300"}
           height={"250"}
-          alt={String(title)}
+          alt={String(IBeneficio.nome)}
           className={styles.image}
         ></Image>
         <Flex
@@ -46,7 +40,7 @@ export default function CardCategoria({
         >  
           <Link href={`#`}>
             <Text whiteSpace={"normal"} textAlign={"center"} fontSize={{ base: "large", md: "4xl", lg: "50" }}>
-              {title}
+              {IBeneficio.nome}
             </Text>
           </Link>
         </Flex>

@@ -38,11 +38,7 @@ export default function Beneficio() {
       <main>
         <div className="container min-vh-100">
           {beneficio ? (
-            <CardBeneficio
-              title={String(beneficio?.title)}
-              description={String(beneficio?.description)}
-              id={Number(beneficio?.id)}
-            />
+           <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
           ) : (
             <Flex justifyContent={"center"} alignItems={"center"} minH={"container.md"}>
               <Spinner
