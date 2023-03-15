@@ -39,7 +39,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           <Text
             whiteSpace={"normal"}
             textAlign={"center"}
-            fontSize={{ base: "initial", md: "4xl", lg: "", xl: "50" }}
+            fontSize={{ base: "initial", md: "4xl", lg: "", xl: "3xl" }}
           >
             {IBeneficio.nome}
           </Text>

@@ -132,7 +132,7 @@ export default function CaptionCarousel() {
                 maxW={"lg"}
                 position="absolute"
                 top="50%"
-                right={{ base: "3xl", md: "4xl", lg: "30%", xl: "76%" }}
+                right={{ base: "3xl", md: "4xl", lg: "30%", xl: "26rem" }}
                 transform="translate(0, -50%)"
               >
                 <Heading
