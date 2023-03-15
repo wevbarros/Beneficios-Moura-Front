@@ -44,19 +44,19 @@ export default function CaptionCarousel() {
   const cards = [
     {
       title: "TotalPass",
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "Bem-vindos ao mundo mágico do TotalPass! Aqui, cuidamos da saúde e do bem-estar dos nossos colaboradores e seus dependentes com muito carinho e dedicação.",
       image:
         '/images/carousel/totalpass.jpg',
     },
     {
-      title: "Vale refeição",
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      title: "Cesta Básica",
+      text: "Prêmio mensal super especial para nossos colaboradores, agora a composição dos alimentos da cesta é feita de forma totalmente personalizada para cada unidade ou distribuição.",
       image:
       '/images/carousel/valerefeicao.jpg',
     },
     {
-      title: "Kit escolar",
-      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      title: "Material Escolar",
+      text: "Bem-vindo(a) ao mundo encantado do Material Escolar Mágico! Todo ano, um cartão especial é preparado com muito carinho para nossos jovens aprendizes.",
       image:
       '/images/carousel/kitescolar.jpg',
     },
@@ -132,17 +132,19 @@ export default function CaptionCarousel() {
                 maxW={"lg"}
                 position="absolute"
                 top="50%"
-                right={{ base: "3xl", md: "4xl", lg: "76%" }}
+                right={{ base: "3xl", md: "4xl", lg: "30%", xl: "76%" }}
                 transform="translate(0, -50%)"
               >
                 <Heading
-                  fontSize={{ base: "3xl", md: "4xl", lg: "7xl" }}
-                  color="#fff"
-                  alignSelf={{ base: "center", md: "baseline", lg: "baseline" }}
+                  fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "7xl" }}
+                  color={{ base: "#fff", md: "#fff", lg: "", xl: "#fff" }}
+                  alignSelf={{ base: "center", md: "baseline", lg: "", xl: "baseline" }}
+                  width={{ base: "full", md: "full", lg: "", xl: "5xl" }}
+                  marginTop={{ base: "16", md: "0", lg: "", xl: "0" }}
                 >
                   {card.title}
                 </Heading>
-                  <Text fontSize={{ base: "2xl", md: "md", lg: "lg" }} color="#fff">
+                  <Text fontSize={{ base: "xl", md: "md", lg: "xl", xl: "lg" }} color="#fff">
                     {card.text}
                   </Text>
               </Stack>

@@ -24,7 +24,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
 export function CardSkeleton() {
   return (
     <Card border="1px" my="10" mx="5" height={'52'} borderColor="blackAlpha.100">
-      <Stack marginLeft="1%" marginTop="5" marginBottom="5">
+      <Stack marginLeft={{base: "10", md: "10", lg: "10"}} marginTop="5" marginBottom="5">
         <Skeleton height="30px" width="60%" startColor='gray.200' endColor='gray.400' />
         <Skeleton height="20px" width="70%" startColor='gray.200' endColor='gray.400' />
         <Skeleton height="20px" width="70%" startColor='gray.200' endColor='gray.400' />

@@ -36,11 +36,6 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#">
-                Contato
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" href="/beneficios">
                 Benefícios
               </Link>

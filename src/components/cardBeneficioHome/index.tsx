@@ -11,10 +11,10 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
       border="2px"
       rounded={"18"}
       borderColor="#fff"
-      my={{ base: "2", md: "5", lg: "5" }}
-      mx={{ base: "1", md: "5", lg: "5" }}
-      width={{ base: "29vw", md: "35vw", lg: "23vw" }}
-      height={{ base: "19vh", md: "20vh", lg: "22vh" }}
+      my={{ base: "2", md: "5", lg: "", xl: "5" }}
+      mx={{ base: "1", md: "5", lg: "", xl: "5" }}
+      width={{ base: "29vw", md: "35vw", lg: "", xl: "23vw" }}
+      height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
       opacity={0.5}
       className={styles.card}
     >
@@ -30,8 +30,8 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
       <Flex
         position={"absolute"}
         color="#fff"
-        width={{ base: "29vw", md: "35vw", lg: "23vw" }}
-        height={{ base: "19vh", md: "20vh", lg: "22vh" }}
+        width={{ base: "29vw", md: "35vw", lg: "", xl: "23vw" }}
+        height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
         justifyContent="center"
         alignItems="center"
       >
@@ -39,7 +39,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           <Text
             whiteSpace={"normal"}
             textAlign={"center"}
-            fontSize={{ base: "initial", md: "4xl", lg: "50" }}
+            fontSize={{ base: "initial", md: "4xl", lg: "", xl: "50" }}
           >
             {IBeneficio.nome}
           </Text>
@@ -55,10 +55,10 @@ export function CardSkeleton() {
       border="2px"
       rounded={"18"}
       borderColor="#fff"
-      my={{ base: "2", md: "5", lg: "5" }}
-      mx={{ base: "1", md: "5", lg: "5" }}
-      width={{ base: "29vw", md: "35vw", lg: "23vw" }}
-      height={{ base: "19vh", md: "20vh", lg: "22vh" }}
+      my={{ base: "2", md: "5", lg: "", xl: "5" }}
+      mx={{ base: "1", md: "5", lg: "", xl: "5" }}
+      width={{ base: "29vw", md: "35vw", lg: "", xl: "23vw" }}
+      height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
       opacity={0.5}
       bgColor={"gray.100"}
       justifyContent={'center'}
