@@ -20,7 +20,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
     >
       <Image
         src={
-          "https://images.freeimages.com/images/large-previews/d41/bear-combat-2-1332988.jpg"
+          "https://portalerp.com/images/2020/08/31/baterias-moura-investe-em-transformacao-digital-com-sap-e-magic-softwarejpg.jpeg"
         }
         width={"300"}
         height={"250"}

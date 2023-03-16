@@ -9,7 +9,7 @@ import { useBeneficiosController } from '../../controllers/BeneficiosController'
 export function SideScroll({categoria, catId} : {categoria: string, catId: string}) {
   const { beneficios } = useBeneficiosController();
 
-  let output = beneficios.filter((beneficio) => beneficio.categoria === catId);
+  let output = beneficios.filter((beneficio) => beneficio.categoria == catId);
 
   return ( 
     <>

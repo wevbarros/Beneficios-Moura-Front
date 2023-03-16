@@ -11,7 +11,8 @@ export default function Beneficios() {
   const { beneficios } = useBeneficiosController()
   
   return (
-    <>
+    <>  
+        <title>Benefícios Moura</title>
         <Flex>
           <CaptionCarousel />
         </Flex>

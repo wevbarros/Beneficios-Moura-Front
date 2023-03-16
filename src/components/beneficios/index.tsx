@@ -21,6 +21,7 @@ export function Beneficios() {
 
   return (
     <>
+      <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
         <div className="container min-vh-100 py-5">
           {router.query.cat ? (
