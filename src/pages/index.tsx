@@ -5,6 +5,7 @@ import { SideScroll } from '../components/sideScroll/SideScroll'
 import styles from '../styles/Categorias.module.scss'
 import { useBeneficiosController } from '../controllers/BeneficiosController'
 import { useRouter } from 'next/router';
+import { Carousel } from '../components/newCarousel/Carousel';
 
 export default function Beneficios() {
   const { isReady } = useRouter();
@@ -14,7 +15,7 @@ export default function Beneficios() {
     <>  
         <title>Benefícios Moura</title>
         <Flex>
-          <CaptionCarousel />
+          <Carousel />
         </Flex>
         <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul}>
           <SideScroll categoria="Alimentação" catId='1' />
