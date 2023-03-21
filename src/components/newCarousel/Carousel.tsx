@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import Image from "next/image";
-import { Text, Flex, Box, Heading, Stack } from "@chakra-ui/react";
+import { Text, Box, Heading, Stack } from "@chakra-ui/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,21 +10,21 @@ const slides = [
   {
     id: 1,
     title: "TotalPass",
-    text: "Bem-vindos ao mundo mágico do TotalPass! Aqui, cuidamos da saúde e do bem-estar dos nossos colaboradores e seus dependentes com muito carinho e dedicação.",
+    text: "A TotalPass é o Benefício que dá Foco Total para a Saúde Física e Mental. Comece Hoje!",
     src: "/images/carousel/totalpass.jpg",
     alt: "Imagem 1",
   },
   {
     id: 2,
     title: "Cesta Básica",
-    text: "Prêmio mensal super especial para nossos colaboradores, agora a composição dos alimentos da cesta é feita de forma totalmente personalizada para cada unidade ou distribuição.",
+    text: "Cesta basica todos os meses para você e sua família. Aproveite e faça parte da família Mágica",
     src: "/images/carousel/valerefeicao.jpg",
     alt: "Imagem 2",
   },
   {
     id: 3,
     title: "Material Escolar",
-    text: "Bem-vindo(a) ao mundo encantado do Material Escolar Mágico! Todo ano, um cartão especial é preparado com muito carinho para nossos jovens aprendizes.",
+    text: "Material escolar para seus filhos. Aproveite e faça parte da família Mágica",
     src: "/images/carousel/kitescolar.jpg",
     alt: "Imagem 3",
   },
@@ -44,16 +44,32 @@ export function Carousel() {
           <SwiperSlide key={slide.id}>
             <Box
               key={index}
-              height={{base: "sm", md: "md", lg: "lg", xl: "xl"}}
+              height={{ base: "sm", md: "md", lg: "lg", xl: "xl" }}
               position="relative"
               backgroundPosition="center"
               backgroundRepeat="no-repeat"
               backgroundSize="cover"
               backgroundImage={`url(${slide.src})`}
             >
-              <Stack marginLeft={{base: "10", xl: "80"}} width={{base: "72", xl: "2xl"}}>
-                <Heading fontSize={{base: "4xl", xl: "8xl"}} color={"#fff"}>{slide.title}</Heading>
-                <Text fontSize={{base: "medium", xl: "xl"}} color={"#fff"}>{slide.text}</Text>
+              <Stack
+                alignItems={{ base: "center", md: "flex-start", lg: "flex-start", xl: "flex-start" }}
+                marginLeft={{ base: "10", md: "40", lg: "28", xl: "xl" }}
+                width={{ base: "80", md: "xl", xl: "container.xl" }}
+              >
+                <Heading
+                  marginLeft={{ base: "0", md: "-20", lg: "lg", xl: "xl" }}
+                  fontSize={{ base: "5xl", xl: "8xl" }}
+                  color={"#fff"}
+                >
+                  {slide.title}
+                </Heading>
+                <Text
+                  fontSize={{ base: "x-large", xl: "40" }}
+                  fontWeight={"light"}
+                  color={"#fff"}
+                >
+                  {slide.text}
+                </Text>
               </Stack>
             </Box>
           </SwiperSlide>
