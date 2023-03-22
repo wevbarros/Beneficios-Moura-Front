@@ -4,11 +4,10 @@ import { Flex, Text } from '@chakra-ui/react';
 import { CardBeneficio, CardSkeleton } from '../cardBeneficioHome';
 import styles from './SideScroll.module.scss';
 
-import "swiper/css";
-
-import { IBeneficio } from '../../dtos/IBeneficio';
 import { useBeneficiosController } from '../../controllers/BeneficiosController';
 import { useMediaQuery } from 'react-responsive';
+
+import "swiper/css";
 
 export function SideScroll({categoria, catId} : {categoria: string, catId: string}) {
   const { beneficios } = useBeneficiosController();
@@ -27,16 +26,25 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
     query: '(min-width: 1024px)'
   });
 
+  const isExtraLargeScreen = useMediaQuery({
+    query: '(min-width: 1200px)'
+  });
+
   let slidesPerSize = 1;
   let spaceBetween = 0;
 
   if (isSmallScreen) {
     slidesPerSize = 3;
+    spaceBetween = 0;
   } else if (isMediumScreen) {
     slidesPerSize = 3;
     spaceBetween = 120;
-  } else if (isLargeScreen) {
+  } else if (isExtraLargeScreen) {
     slidesPerSize = 4;
+    spaceBetween = 0;
+  } else if (isLargeScreen) {
+    slidesPerSize = 3;
+    spaceBetween = 120;
   }
 
   return ( 

@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { Flex } from '@chakra-ui/react';
-import CaptionCarousel from '../components/Carousel'
 import { SideScroll } from '../components/sideScroll/SideScroll'
 import styles from '../styles/Categorias.module.scss'
 import { useBeneficiosController } from '../controllers/BeneficiosController'
 import { useRouter } from 'next/router';
-import { Carousel } from '../components/newCarousel/Carousel';
+import { Carousel } from '../components/Carousel/Carousel';
 
 export default function Beneficios() {
   const { isReady } = useRouter();
