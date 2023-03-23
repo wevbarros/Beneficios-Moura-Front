@@ -21,22 +21,22 @@ export function Categorias() {
             gap={4}
           >
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Alimentação" id={'1'} urlImage="" />
+              <CardCategoria nome="Alimentação" id={'1'} urlImage="/images/categorias/alimentacao.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Mobilidade e Moradia" id={'2'} urlImage="" />
+              <CardCategoria nome="Mobilidade e Moradia" id={'2'} urlImage="/images/categorias/mobilidade_moradia.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Saúde e Seguros" id={'3'} urlImage="" />
+              <CardCategoria nome="Saúde e Seguros" id={'3'} urlImage="/images/categorias/saude_seguros.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Educação" id={'4'} urlImage="" />
+              <CardCategoria nome="Educação" id={'4'} urlImage="/images/categorias/educacao.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Estilo de Vida" id={'5'} urlImage="" />
+              <CardCategoria nome="Estilo de Vida" id={'5'} urlImage="/images/categorias/estilo_vida.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Benefícios Corporativos" id={'6'} urlImage="" />
+              <CardCategoria nome="Benefícios Corporativos" id={'6'} urlImage="/images/categorias/corporativos.webp" />
             </GridItem>
           </Grid>
           <Text display={{base: "flex", md: "none", lg: "none"}} marginTop={"10"}>
