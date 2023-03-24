@@ -11,10 +11,10 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
       border="2px"
       rounded={"18"}
       borderColor="#fff"
-      my={{ base: "2", md: "5", lg: "", xl: "5" }}
-      mx={{ base: "1", md: "5", lg: "", xl: "5" }}
-      width={{ base: "29vw", md: "35vw", lg: "", xl: "23vw" }}
-      height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
+      my={{ base: "2", md: "5", lg: "5", xl: "5" }}
+      mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
+      width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
+      height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
       opacity={0.5}
       className={styles.card}
     >
@@ -30,8 +30,8 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
       <Flex
         position={"absolute"}
         color="#fff"
-        width={{ base: "29vw", md: "35vw", lg: "", xl: "23vw" }}
-        height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
+        width={{ base: "full", md: "full", lg: "full", xl: "full" }}
+        height={{ base: "full", md: "full", lg: "full", xl: "full" }}
         justifyContent="center"
         alignItems="center"
       >
@@ -39,7 +39,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           <Text
             whiteSpace={"normal"}
             textAlign={"center"}
-            fontSize={{ base: "initial", md: "4xl", lg: "", xl: "3xl" }}
+            fontSize={{ base: "initial", md: "3xl", lg: "4xl", xl: "4xl" }}
           >
             {IBeneficio.nome}
           </Text>

@@ -35,13 +35,18 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
 
   if (isSmallScreen) {
     slidesPerSize = 3;
-    spaceBetween = 0;
+    spaceBetween = 1;
   } else if (isMediumScreen) {
     slidesPerSize = 3;
     spaceBetween = 120;
   } else if (isExtraLargeScreen) {
     slidesPerSize = 4;
     spaceBetween = 0;
+    //se output for menor que 4, repita o primeiro item no final
+    if (output.length < 4) {
+      output = output.concat(output);
+    }
+
   } else if (isLargeScreen) {
     slidesPerSize = 3;
     spaceBetween = 120;

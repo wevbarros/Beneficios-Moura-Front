@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 
-export default function CardCategoria({nome, urlImage, id} : {nome: String, urlImage: String, id: String}) {
+export default function CardCategoria({nome, urlImage, id} : {nome: String, urlImage: string, id: String}) {
   return (
     <Link href={`/beneficios?cat=${nome}&id=${id}`}>
       <Card className={styles.cardCategoria}>
