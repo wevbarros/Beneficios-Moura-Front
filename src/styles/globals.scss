@@ -44,6 +44,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+#Logo{
+  height: 2em;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

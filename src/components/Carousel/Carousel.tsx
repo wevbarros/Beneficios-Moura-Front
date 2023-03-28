@@ -60,6 +60,7 @@ export function Carousel() {
                   marginLeft={{ base: "0", md: "-20", lg: "lg", xl: "xl" }}
                   fontSize={{ base: "5xl", xl: "8xl" }}
                   color={"#fff"}
+                  paddingTop="0.5em"
                 >
                   {slide.title}
                 </Heading>

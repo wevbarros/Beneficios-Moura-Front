@@ -14,6 +14,7 @@ export function Categorias() {
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
+          paddingTop="2em"
         >
           <Grid
             marginTop={"0"}

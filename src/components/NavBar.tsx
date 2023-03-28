@@ -3,18 +3,17 @@ import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import Script from "next/script";
 
+
 export default function NavBar() {
   return (
     <nav
-      className={`navbar navbar-dark navbar-expand-md py-3 ${styles.navBar}`}
+      className={`navbar fixed-top navbar-expand-lg navbar-light ${styles.navBar}`}
     >
-      <div className="container">
-        <Link className="navbar-brand d-flex align-items-center" href="/">
-          <span className="d-flex justify-content-center align-items-center bs-icon-sm bs-icon-rounded bs-icon-primary me-2 bs-icon">
-            <FaBuffer />
-          </span>
-          <span>benefícios</span>
-        </Link>
+      <div className="container" >
+        <div className="navbar-brand d-flex align-items-center">
+          <img id="Logo" src='/images/Logo-removebg-preview.webp' alt='Logo Moura'/>
+          <span>Benefícios</span>
+        </div>
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"
