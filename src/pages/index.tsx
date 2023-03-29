@@ -7,8 +7,6 @@ import { useRouter } from 'next/router';
 import { Carousel } from '../components/Carousel/Carousel';
 
 export default function Beneficios() {
-  const { isReady } = useRouter();
-  const { beneficios } = useBeneficiosController()
   
   return (
     <>  

@@ -11,21 +11,21 @@ const slides = [
     id: 1,
     title: "TotalPass",
     text: "A TotalPass é o Benefício que dá Foco Total para a Saúde Física e Mental. Comece Hoje!",
-    src: "/images/carousel/totalpass.webp",
+    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/totalpasscover.jpg",
     alt: "Imagem 1",
   },
   {
     id: 2,
     title: "Cesta Básica",
     text: "Cesta basica todos os meses para você e sua família. Aproveite e faça parte da família Mágica",
-    src: "/images/carousel/valerefeicao.webp",
+    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/bolsaalimentacao.jpg",
     alt: "Imagem 2",
   },
   {
     id: 3,
     title: "Material Escolar",
     text: "Material escolar para seus filhos. Aproveite e faça parte da família Mágica",
-    src: "/images/carousel/kitescolar.webp",
+    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/kitescolar.jpg",
     alt: "Imagem 3",
   },
 ];
@@ -39,6 +39,7 @@ export function Carousel() {
         }}
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 5000 }}
+        loop={true}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id}>
@@ -61,6 +62,8 @@ export function Carousel() {
                   fontSize={{ base: "5xl", xl: "8xl" }}
                   color={"#fff"}
                   paddingTop="0.5em"
+                  fontFamily={"Poppins"}
+                  fontWeight={"semibold"}
                 >
                   {slide.title}
                 </Heading>

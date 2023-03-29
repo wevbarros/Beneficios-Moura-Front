@@ -6,7 +6,6 @@ import { Spinner, Flex } from "@chakra-ui/react";
 import { api } from "../../services/api";
 import { IBeneficio } from "../../dtos/IBeneficio";
 import { CardBeneficio } from "../../components/cardBeneficioBeneficios";
-import NavBar from "../../components/NavBar";
 
 export default function Beneficio() {
   const { query, isReady } = useRouter();
