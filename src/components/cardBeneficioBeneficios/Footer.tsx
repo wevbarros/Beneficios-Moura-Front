@@ -3,10 +3,10 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 export function Footer() {
   return (
     <Flex>
-        <Box w='100%' h='24' bgGradient='linear(to-r, #1066f2, #3f8df2)'>
+        <Box w='100%' h='8' bgColor={"#fff"}>
         <div className="container">
-          <footer>
-            <Text marginLeft={'5'} color={"#fff"} fontWeight={"hairline"}>Benefícos Moura 2023 ©</Text>
+          <footer className="rodape">
+            <Text textAlign={"center"} color={"#182a74"} fontWeight={"semibold"}>Um Projeto MouraTECH ©</Text>
           </footer>
         </div>
         </Box>

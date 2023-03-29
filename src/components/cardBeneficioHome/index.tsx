@@ -18,7 +18,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
       opacity={0.5}
       className={styles.card}
     >
-      <Image
+      <img
         src={
           "https://portalerp.com/images/2020/08/31/baterias-moura-investe-em-transformacao-digital-com-sap-e-magic-softwarejpg.jpeg"
         }
@@ -26,7 +26,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         height={"250"}
         alt={String(IBeneficio.nome)}
         className={styles.image}
-      ></Image>
+      ></img>
       <Flex
         position={"absolute"}
         color="#fff"

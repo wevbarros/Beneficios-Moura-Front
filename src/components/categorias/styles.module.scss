@@ -1,12 +1,14 @@
 .container {
-  background: linear-gradient(180deg, #182A74 32.34%, rgba(0, 125, 206, 0.81) 100%);
+  background: linear-gradient(180deg, #182a74 40vh, #007dce);
+  background-attachment: fixed;
   min-height: 100vh;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .container {
-    background: linear-gradient(180deg, #182A74 32.34%, rgba(0, 125, 206, 0.81) 100%);
+    background: linear-gradient(180deg, #182a74 40vh, #007dce);
+    background-attachment: fixed;
     height: 100vh;
   }
 }
@@ -14,7 +16,8 @@
 
 @media (min-width: 1200px) {
   .container {
-    background: linear-gradient(180deg, #182A74 32.34%, rgba(0, 125, 206, 0.81) 100%);
+    background: linear-gradient(180deg, #182a74 40vh, #007dce);
+    background-attachment: fixed;
     min-height: 110vh;
     overflow: hidden;
   }

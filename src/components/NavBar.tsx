@@ -10,10 +10,10 @@ export default function NavBar() {
       className={`navbar fixed-top navbar-expand-lg navbar-light ${styles.navBar}`}
     >
       <div className="container" >
-        <div className="navbar-brand d-flex align-items-center">
+        <Link className="navbar-brand d-flex align-items-center" href="./">
           <img id="Logo" src='/images/Logo-removebg-preview.webp' alt='Logo Moura'/>
           <span>Benefícios</span>
-        </div>
+        </Link>
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"
@@ -26,7 +26,7 @@ export default function NavBar() {
           <ul className="navbar-nav ms-auto px-2">
             <li className="nav-item">
               <Link className="nav-link" href="/">
-                Home
+                Início
               </Link>
             </li>
             <li className="nav-item">
@@ -40,13 +40,6 @@ export default function NavBar() {
               </Link>
             </li>
           </ul>
-          <Link
-            className="btn btn-outline-light md-2 rounded-5 px-4"
-            role="button"
-            href="#"
-          >
-            Login
-          </Link>
         </div>
       </div>
     </nav>

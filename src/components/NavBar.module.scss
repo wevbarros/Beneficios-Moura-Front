@@ -8,6 +8,12 @@
 }
 
 .navBar{
-  background-color: rgba($color: rgb(24, 42, 116), $alpha: 0.5);
-  
+  background-color: rgba($color: rgb(24, 42, 116), $alpha: 0.2);
+//  width: 80%;
+  margin: 0 auto;
+  border-radius: 0 0 12px 12px;
+}
+
+.navBar a {
+  color: white;
 }
