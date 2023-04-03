@@ -10,8 +10,8 @@ export default function NavBar() {
       className={`navbar fixed-top navbar-expand-lg navbar-light ${styles.navBar}`}
     >
       <div className="container" >
-        <Link className="navbar-brand d-flex align-items-center" href="./">
-          <img id="Logo" src='/images/Logo-removebg-preview.webp' alt='Logo Moura'/>
+        <Link className="navbar-brand d-flex align-items-center" href="/">
+          <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/>
           <span>Benefícios</span>
         </Link>
         <button
