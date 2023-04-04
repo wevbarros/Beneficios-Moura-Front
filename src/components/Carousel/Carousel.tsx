@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import Image from "next/image";
 import { Text, Box, Heading, Stack } from "@chakra-ui/react";
+import styles from "./styles.module.scss";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -40,6 +41,7 @@ export function Carousel() {
         modules={[Pagination, Autoplay]}
         autoplay={{ delay: 5000 }}
         loop={true}
+        className={styles.bgCarousel}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id}>
@@ -51,6 +53,7 @@ export function Carousel() {
               backgroundRepeat="no-repeat"
               backgroundSize="cover"
               backgroundImage={`url(${slide.src})`}
+              opacity="0.4"
             >
               <Stack
                 alignItems={{ base: "center", md: "flex-start", lg: "flex-start", xl: "flex-start" }}
