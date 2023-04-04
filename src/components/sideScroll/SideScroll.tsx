@@ -1,5 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import { Flex, Text } from '@chakra-ui/react'; 
 import { CardBeneficio, CardSkeleton } from '../cardBeneficioHome';
 import styles from './SideScroll.module.scss';
@@ -8,6 +9,7 @@ import { useBeneficiosController } from '../../controllers/BeneficiosController'
 import { useMediaQuery } from 'react-responsive';
 
 import "swiper/css";
+import "swiper/css/navigation";
 
 export function SideScroll({categoria, catId} : {categoria: string, catId: string}) {
   const { beneficios } = useBeneficiosController();
@@ -60,7 +62,9 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
             <Swiper
               slidesPerView={slidesPerSize}
               spaceBetween={spaceBetween}
+              navigation={true}
               slidesPerGroup={1}
+              modules={[Navigation]}
             >
               { output.length > 0 ? (
                   output.map((beneficio) => (
