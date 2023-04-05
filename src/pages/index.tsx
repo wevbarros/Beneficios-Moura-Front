@@ -4,6 +4,7 @@ import { SideScroll } from '../components/sideScroll/SideScroll'
 import styles from '../styles/Categorias.module.scss'
 import { useBeneficiosController } from '../controllers/BeneficiosController'
 import { useRouter } from 'next/router';
+import { Footer } from "../components/cardBeneficioBeneficios/Footer";
 import { Carousel } from '../components/Carousel/Carousel';
 
 export default function Beneficios() {
@@ -22,6 +23,7 @@ export default function Beneficios() {
           <SideScroll categoria="Estilo de Vida" catId='5' />
           <SideScroll categoria="Benefícios Corporativos" catId='6' />
         </Flex>
+        <Footer />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { Flex, Grid, GridItem, Text } from "@chakra-ui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import CardCategoria from "../cardCategoria/index";
+import { Footer } from "../cardBeneficioBeneficios/Footer";
 import styles from './styles.module.scss';
 import Link from "next/link";
 
@@ -47,6 +48,9 @@ export function Categorias() {
           </Text>
         </Flex>
       </div>
+      <Footer/>   
     </>
   )
 }
+
+

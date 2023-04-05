@@ -50,7 +50,7 @@ export function Beneficios() {
           )}
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
 }
