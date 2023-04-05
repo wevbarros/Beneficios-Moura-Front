@@ -19,13 +19,13 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         opacity={0.5}
         className={styles.card}
       >
-        <img
-          src={IBeneficio.urlImage}
+        <Image
+          src={`${String(IBeneficio.urlImage)}`}
           width={"300"}
           height={"250"}
           alt={String(IBeneficio.nome)}
           className={styles.image}
-        ></img>
+        ></Image>
         <Flex
           position={"absolute"}
           color="#fff"

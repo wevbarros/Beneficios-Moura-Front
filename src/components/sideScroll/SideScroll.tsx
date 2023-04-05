@@ -62,9 +62,9 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
             <Swiper
               slidesPerView={slidesPerSize}
               spaceBetween={spaceBetween}
-              navigation={true}
               slidesPerGroup={1}
               modules={[Navigation]}
+              navigation={true}
             >
               { output.length > 0 ? (
                   output.map((beneficio) => (
@@ -82,9 +82,12 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
                   </>
                 )
               }
-              </Swiper>       
-            </div>
+              <div className="swiper-button-prev" style={{ color: '#fff' }}></div>
+              <div className="swiper-button-next" style={{ color: '#fff' }}></div>
+            </Swiper>
+          </div>
         </Flex>
     </>
-   ); 
+  );
 }
+

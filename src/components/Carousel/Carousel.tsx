@@ -61,12 +61,12 @@ export function Carousel() {
                 width={{ base: "80", md: "xl", xl: "container.xl" }}
               >
                 <Heading
-                  marginLeft={{ base: "0", md: "-20", lg: "lg", xl: "xl" }}
                   fontSize={{ base: "5xl", xl: "8xl" }}
                   color={"#fff"}
                   paddingTop="0.5em"
                   fontFamily={"Poppins"}
                   fontWeight={"semibold"}
+                  marginTop={{ base: "10", md: "40", lg: "5", xl: "xl" }}
                 >
                   {slide.title}
                 </Heading>
