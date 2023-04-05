@@ -8,11 +8,23 @@
 }
 
 .navBar{
-  background: linear-gradient(180deg, #000 1px, rgba(255, 255, 255, 0));
-//  width: 80%;
+  background: linear-gradient(180deg, #000 , rgba(255, 255, 255, 0));
   margin: 0 auto;
 }
 
 .navBar a {
   color: white;
+  transition: 0.2s;
+}
+
+.navBar a:hover{
+  cursor: pointer;
+  color: #6274BF;
+}
+
+@media (max-width: 991px) {
+  .navBar {
+    background: linear-gradient(180deg, #0B1333 95%, rgba(255, 255, 255, 0));
+    margin: 0 auto;
+  }
 }

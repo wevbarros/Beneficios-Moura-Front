@@ -10,7 +10,6 @@ export default function Beneficios() {
   
   return (
     <>  
-        <title>Benefícios Moura</title>
         <Flex>
           <Carousel />
         </Flex>
