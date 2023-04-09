@@ -66,27 +66,27 @@ export function Carousel() {
               />
               <Stack
                 alignItems={{
-                  base: "center",
+                  base: "flex-start",
                   md: "flex-start",
                   lg: "flex-start",
                   xl: "flex-start",
                 }}
-                marginLeft={{ base: "10", md: "40", lg: "80", xl: "xl" }}
-                width={{ base: "80", md: "xl", xl: "container.xl" }}
+                marginLeft={{ base: "5", md: "10", lg: "12", xl: "80" }}
+                width={{ base: "", md: "xl", xl: "container.xl" }}
                 opacity="0.9"
               >
                 <Heading
-                  fontSize={{ base: "5xl", xl: "8xl" }}
+                  fontSize={{ base: "5.4vh", md: "xxx-large", xl: "8xl" }}
                   color={"#fff"}
                   paddingTop="0.5em"
                   fontFamily={"Poppins"}
                   fontWeight={"semibold"}
-                  marginTop={{ base: "base", md: "md", lg: "lg", xl: "xl" }}
+                  marginTop={{ base: "12", md: "12", lg: "5vh", xl: "5vh" }}
                 >
                   {slide.title}
                 </Heading>
                 <Text
-                  fontSize={{ base: "x-large", xl: "40" }}
+                  fontSize={{ base: "x-large", md: "x-large", xl: "50" }}
                   fontWeight={"light"}
                   color={"#fff"}
                 >

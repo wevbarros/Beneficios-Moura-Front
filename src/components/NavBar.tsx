@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function NavBar() {
   return (
     <nav
-      className={`navbar fixed-top navbar-expand-lg navbar-light ${styles.navBar}`}
+      className={`navbar fixed-top navbar-expand-lg navbar-dark ${styles.navBar}`}
     >
       <div className="container" >
         <Link className="navbar-brand d-flex align-items-center" href="./">
