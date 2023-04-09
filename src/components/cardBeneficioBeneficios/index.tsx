@@ -21,6 +21,29 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
   );
 }
 
+// export function CardBeneficioRetratil(IBeneficio: IBeneficio) {
+//   const [show, setShow] = React.useState(false)
+//   const handleToggle = () => setShow(!show)
+
+//   return (
+//     <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" borderColor="blackAlpha.400">
+//       <Box backgroundImage={IBeneficio.urlImage}>
+//         <CardHeader>
+//           <Heading size="xl" fontWeight="normal" color={'#fff'}>
+//             {IBeneficio.nome}
+//           </Heading>
+//         </CardHeader>
+//         <CardBody mt="-8">
+//           <Collapse startingHeight={0} in={show}> 
+//             <Text color={'#fff'}>{IBeneficio.descricao}</Text>
+//           </Collapse>
+//             <Button onClick={handleToggle} className={styles.BlueButton} mt="2" colorScheme={"white"} variant="outline" rounded="3xl">Acessar</Button>
+//         </CardBody>
+//       </Box>
+//     </Card>
+//   );
+// }
+
 export function CardSkeleton() {
   return (
     <Card border="1px" my="10" mx="5" height={'52'} borderColor="blackAlpha.100">
