@@ -2,6 +2,7 @@ import { FaBuffer } from "react-icons/fa";
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import Script from "next/script";
+import 'animate.css'
 
 
 export default function NavBar() {
@@ -9,9 +10,9 @@ export default function NavBar() {
     <nav
       className={`navbar fixed-top navbar-expand-lg navbar-light ${styles.navBar}`}
     >
-      <div className="container" >
-        <Link className="navbar-brand d-flex align-items-center" href="./">
-          <img id="Logo" src='/images/Logo-removebg-preview.webp' alt='Logo Moura'/>
+      <div className="container animate__animated animate__fadeInDown" >
+        <Link className="navbar-brand d-flex align-items-center" href="/">
+          <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/>
           <span>Benefícios</span>
         </Link>
         <button

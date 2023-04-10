@@ -3,6 +3,7 @@ import { Footer } from "../cardBeneficioBeneficios/Footer";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
 import { Text } from "@chakra-ui/react";
+import 'animate.css';
 
 import styles from "./styles.module.scss";
 
@@ -23,7 +24,7 @@ export function Beneficios() {
     <>
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
-        <div className="container min-vh-100 py-5">
+        <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">
           {router.query.cat ? (
             <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
               Filtrando por: {router.query.cat}

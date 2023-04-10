@@ -7,35 +7,34 @@ import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   return (
-    <Card
-      border="2px"
-      rounded={"18"}
-      borderColor="#fff"
-      my={{ base: "2", md: "5", lg: "5", xl: "5" }}
-      mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
-      width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
-      height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
-      opacity={0.5}
-      className={styles.card}
-    >
-      <img
-        src={
-          IBeneficio.urlImage
-        }
-        width={"300"}
-        height={"250"}
-        alt={String(IBeneficio.nome)}
-        className={styles.image}
-      ></img>
-      <Flex
-        position={"absolute"}
-        color="#fff"
-        width={{ base: "full", md: "full", lg: "full", xl: "full" }}
-        height={{ base: "full", md: "full", lg: "full", xl: "full" }}
-        justifyContent="center"
-        alignItems="center"
+    <Link href={`/beneficio/${IBeneficio.id}`} className={styles.card} >
+      <Card
+        border="2px"
+        rounded={"18"}
+        borderColor="#fff"
+        my={{ base: "2", md: "5", lg: "5", xl: "5" }}
+        mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
+        width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
+        height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
+        opacity={0.5}
       >
-        <Link href={`/beneficio/${IBeneficio.id}`}>
+        <img
+          src={
+            IBeneficio.urlImage
+          }
+          width={"300"}
+          height={"250"}
+          alt={String(IBeneficio.nome)}
+          className={styles.image}
+        ></img>
+        <Flex
+          position={"absolute"}
+          color="#fff"
+          width={{ base: "full", md: "full", lg: "full", xl: "full" }}
+          height={{ base: "full", md: "full", lg: "full", xl: "full" }}
+          justifyContent="center"
+          alignItems="center"
+        >
           <Text
             whiteSpace={"normal"}
             textAlign={"center"}
@@ -43,9 +42,10 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           >
             {IBeneficio.nome}
           </Text>
-        </Link>
-      </Flex>
-    </Card>
+        </Flex>
+      </Card >
+    </Link>
+
   );
 }
 
