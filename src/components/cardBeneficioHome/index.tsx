@@ -7,7 +7,7 @@ import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   return (
-    <Link href={`/beneficio/${IBeneficio.id}`} className={styles.card} >
+    <Link href={`/beneficio/${IBeneficio.id}`}>
       <Card
         border="2px"
         rounded={"18"}
@@ -17,16 +17,15 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
         height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
         opacity={0.5}
+        className={styles.card}
       >
-        <img
-          src={
-            IBeneficio.urlImage
-          }
+        <Image
+          src={`${String(IBeneficio.urlImage)}`}
           width={"300"}
           height={"250"}
           alt={String(IBeneficio.nome)}
           className={styles.image}
-        ></img>
+        ></Image>
         <Flex
           position={"absolute"}
           color="#fff"
@@ -43,9 +42,8 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
             {IBeneficio.nome}
           </Text>
         </Flex>
-      </Card >
+      </Card>
     </Link>
-
   );
 }
 
@@ -61,12 +59,12 @@ export function CardSkeleton() {
       height={{ base: "19vh", md: "20vh", lg: "", xl: "22vh" }}
       opacity={0.5}
       bgColor={"gray.100"}
-      justifyContent={'center'}
+      justifyContent={"center"}
       flexGrow={0}
       flexShrink={0}
-      flexBasis={'auto'}
+      flexBasis={"auto"}
     >
-      <Stack alignItems={'center'} >
+      <Stack alignItems={"center"}>
         <Skeleton
           height="5"
           width="60%"
