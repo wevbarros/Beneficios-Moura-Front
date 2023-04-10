@@ -71,8 +71,8 @@ export function Carousel() {
                   lg: "flex-start",
                   xl: "flex-start",
                 }}
-                marginLeft={{ base: "5", md: "10", lg: "12", xl: "10vw" }}
-                width={{ base: "", md: "xl", xl: "container.xl" }}
+                marginLeft={{ base: "5", md: "10", lg: "12", xl: "5vw" }}
+                width={{ base: "", md: "xl", lg: "containet.lg", xl: "container.xl" }}
                 opacity="0.9"
               >
                 <Heading
@@ -86,7 +86,7 @@ export function Carousel() {
                   {slide.title}
                 </Heading>
                 <Text
-                  fontSize={{ base: "x-large", md: "x-large", xl: "50" }}
+                  fontSize={{ base: "x-large", lg: "x-large", md: "x-large", xl: "xxx-large" }}
                   fontWeight={"light"}
                   color={"#fff"}
                 >

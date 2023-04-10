@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardHeader, Heading, Text, Stack, Skeleton, Box, Collapse } from "@chakra-ui/react";
+import { Button, Card, CardBody, CardHeader, Heading, Text, Stack, Skeleton, Box, Collapse, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { IBeneficio } from "../../dtos/IBeneficio";
@@ -27,8 +27,8 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
   const handleToggle = () => setShow(!show)
 
   return (
-    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" borderColor="blackAlpha.400">
-      <Box backgroundImage={IBeneficio.urlImage}>
+    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" >
+      <Box bgRepeat={'no-repeat'} backgroundSize={'cover'} backgroundImage={IBeneficio.urlImage}>
         <CardHeader>
           <Heading size="xl" fontWeight="normal" color={'#fff'}>
             {IBeneficio.nome}

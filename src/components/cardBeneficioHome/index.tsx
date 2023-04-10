@@ -1,4 +1,4 @@
-import { Card, Text, Flex, Skeleton, Stack } from "@chakra-ui/react";
+import { Card, Text, Flex, Skeleton, Stack, Box } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
@@ -16,7 +16,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
         width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
         height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
-        opacity={0.5}
+        position="relative" /* Adiciona posição relativa para o ::before funcionar */
         className={styles.card}
       >
         <Image
@@ -42,10 +42,23 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
             {IBeneficio.nome}
           </Text>
         </Flex>
+        {/* Adiciona o elemento ::before com a opacidade */}
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          backgroundColor="#000"
+          opacity="0.5"
+          zIndex="1"
+          rounded="18"
+        />
       </Card>
     </Link>
   );
 }
+
 
 export function CardSkeleton() {
   return (
