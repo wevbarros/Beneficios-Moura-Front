@@ -71,7 +71,7 @@ export function Carousel() {
                   lg: "flex-start",
                   xl: "flex-start",
                 }}
-                marginLeft={{ base: "5", md: "10", lg: "12", xl: "80" }}
+                marginLeft={{ base: "5", md: "10", lg: "12", xl: "10vw" }}
                 width={{ base: "", md: "xl", xl: "container.xl" }}
                 opacity="0.9"
               >

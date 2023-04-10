@@ -1,7 +1,7 @@
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
-import { Text } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 
 import styles from "./styles.module.scss";
 
@@ -21,34 +21,34 @@ export function Beneficios() {
   return (
     <>
       <title>Benefícios - Benefícios Moura</title>
-      <div className={`${styles.backGround}`}>
-        <div className="container min-vh-100 py-5">
-          {router.query.cat ? (
-            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
-              Filtrando por: {router.query.cat}
-            </Text>
-          ) : (
-            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
-              Listando todos os benefícios
-            </Text>
-          )}
-          {beneficios.length > 0 ? (
-            output.map((beneficio) => (
-              <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
-            ))
-          ) : (
-            <>
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-              <CardSkeleton />
-            </>
-          )}
-        </div>
-      </div>
+      <Flex className={`${styles.backGround}`}>
+          <div className="container min-vh-100 py-5 mt-5 pt-5">
+            {router.query.cat ? (
+              <Text marginTop={'5'} marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
+                Filtrando por: {router.query.cat}
+              </Text>
+            ) : (
+              <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
+                Listando todos os benefícios
+              </Text>
+            )}
+            {beneficios.length > 0 ? (
+              output.map((beneficio) => (
+                <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
+              ))
+            ) : (
+              <>
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+              </>
+            )}
+          </div>
+      </Flex>
     </>
   );
 }

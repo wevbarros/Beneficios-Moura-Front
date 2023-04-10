@@ -12,7 +12,7 @@ export default function NavBar() {
     >
       <div className="container" >
         <Link className="navbar-brand d-flex align-items-center" href="./">
-          <Image id="Logo" src='/images/Logo-removebg-preview.webp' alt='Logo Moura' width={'70'} height={'20'} />
+          <Image id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura' width={'70'} height={'20'} />
           <span>Benefícios</span>
         </Link>
         <button
