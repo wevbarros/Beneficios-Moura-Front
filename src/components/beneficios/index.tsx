@@ -2,6 +2,7 @@ import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
 import { Text, Flex } from "@chakra-ui/react";
+import 'animate.css';
 
 import styles from "./styles.module.scss";
 
