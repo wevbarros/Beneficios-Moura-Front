@@ -1,8 +1,8 @@
 .container {
   background: linear-gradient(180deg, #182a74 40vh, #007dce);
   background-attachment: fixed;
-  min-height: 100vh;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 @media (min-width: 768px) {
