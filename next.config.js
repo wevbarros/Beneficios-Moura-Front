@@ -5,17 +5,15 @@ const nextConfig = {
   images: {
     domains: ['portalerp.com', 'www.eusemfronteiras.com.br', 'beneficiosmourastorage.blob.core.windows.net'],
   },
-  // webpack: (config, { isServer }) => {
-  //   if (!isServer) {
-  //     config.plugins.push(new BundleAnalyzerPlugin({
-  //       analyzerMode: 'server',
-  //       generateStatsFile: true,
-  //       statsOptions: { source: false },
-  //     }));
-  //   }
-
-  //   return config;
-  // },
 };
+
+const withPWA  = require("next-pwa");
+module.exports = withPWA({
+    pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
+});
 
 module.exports = nextConfig;
