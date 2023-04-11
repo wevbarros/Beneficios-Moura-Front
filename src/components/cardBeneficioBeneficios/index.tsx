@@ -27,18 +27,18 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
   const handleToggle = () => setShow(!show)
 
   return (
-    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" >
-      <Box bgRepeat={'no-repeat'} backgroundSize={'cover'} backgroundImage={IBeneficio.urlImage}>
+    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" bgColor={'#007DCE'} borderColor={'#fff'}>
+      <Box bgRepeat={'no-repeat'} backgroundSize={'cover'} >
         <CardHeader>
-          <Heading size="xl" fontWeight="normal" color={'#fff'}>
+          <Heading size="xl" fontWeight="normal" color={'#fff'} textAlign={'center'}>
             {IBeneficio.nome}
           </Heading>
         </CardHeader>
-        <CardBody mt="-8">
+        <CardBody mt="-8" >
           <Collapse startingHeight={0} in={show}> 
-            <Text color={'#fff'}>{IBeneficio.descricao}</Text>
+            <Text color={'#fff'} textAlign={'justify'}>{IBeneficio.descricao}</Text>
           </Collapse>
-            <Button onClick={handleToggle} className={styles.BlueButton} mt="2" colorScheme={"white"} variant="outline" rounded="3xl">Acessar</Button>
+            <Button onClick={handleToggle} className={styles.BlueButton} mt="2" colorScheme={"white"} variant="outline" rounded="3xl" display={'block'}>Acessar</Button>
         </CardBody>
       </Box>
     </Card>

@@ -24,9 +24,8 @@ export default function Beneficios() {
           <SideScroll categoria="Educação" catId='4' />
           <SideScroll categoria="Estilo de Vida" catId='5' />
           <SideScroll categoria="Benefícios Corporativos" catId='6' />
-        </Flex>
-        <Footer />
         </div>
+        <Footer />
       </Flex>
     </>
   )
