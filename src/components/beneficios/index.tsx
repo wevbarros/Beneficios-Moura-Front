@@ -30,8 +30,8 @@ export function Beneficios() {
               Filtrando por: {router.query.cat}
             </Text>
           ) : (
-            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
-              Listando todos os benefícios
+            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"center"}>
+              Listando Todos os Benefícios
             </Text>
           )}
           {beneficios.length > 0 ? (
