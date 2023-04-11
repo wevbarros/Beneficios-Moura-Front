@@ -1,8 +1,8 @@
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
-import { Footer } from "../cardBeneficioBeneficios/Footer";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
-import { Text } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
+import 'animate.css';
 
 import styles from "./styles.module.scss";
 

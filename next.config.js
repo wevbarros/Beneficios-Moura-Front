@@ -3,7 +3,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['portalerp.com', 'www.eusemfronteiras.com.br'],
+    domains: ['portalerp.com', 'www.eusemfronteiras.com.br', 'beneficiosmourastorage.blob.core.windows.net'],
   },
   // webpack: (config, { isServer }) => {
   //   if (!isServer) {
