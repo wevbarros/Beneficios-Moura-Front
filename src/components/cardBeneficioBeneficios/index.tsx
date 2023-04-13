@@ -1,49 +1,40 @@
 import { Button, Card, CardBody, CardHeader, Heading, Text, Stack, Skeleton, Box, Collapse, Flex } from "@chakra-ui/react";
-import Link from "next/link";
+import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 import styles from "./styles.module.scss";
 import { IBeneficio } from "../../dtos/IBeneficio";
-import React from "react";
-
-// export function CardBeneficio(IBeneficio: IBeneficio) {
-//   return (
-//     <Card border="1px" my="10" mx="5" borderColor="blackAlpha.400">
-//       <CardHeader>
-//         <Heading size="xl" fontWeight="normal">
-//           {IBeneficio.nome}
-//         </Heading>
-//       </CardHeader>
-//       <CardBody mt="-8">
-//         <Text>{IBeneficio.descricao}</Text>
-//           <Link href={`beneficio/${IBeneficio.id}`}>
-//             <Button className={styles.BlueButton} mt="2" colorScheme={"blue"} variant="outline" rounded="3xl">Acessar</Button>
-//           </Link>
-//       </CardBody>
-//     </Card>
-//   );
-// }
+import { useState } from "react";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
-  const [show, setShow] = React.useState(false)
-  const handleToggle = () => setShow(!show)
+  const [show, setShow] = useState(false);
+  const [isChevronUp, setIsChevronUp] = useState(false);
+  const handleToggle = () => setShow(!show);
+  const chevronIcon = isChevronUp ? <HiChevronUp className={styles.alignCenter} /> : <HiChevronDown className={styles.alignCenter} />;
 
   return (
-    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" >
-      <Box bgRepeat={'no-repeat'} backgroundSize={'cover'} backgroundImage={IBeneficio.urlImage}>
+    <Card border={'1px'} overflow={"hidden"} rounded={'3xl'} my="10" mx="5" bgColor={'#007DCE'} borderColor={'#fff'}>
+      <Box bgRepeat={'no-repeat'} backgroundSize={'cover'} >
         <CardHeader>
-          <Heading size="xl" fontWeight="normal" color={'#fff'}>
+          <Heading size="xl" fontWeight="normal" color={'#fff'} textAlign={'center'}>
             {IBeneficio.nome}
           </Heading>
         </CardHeader>
-        <CardBody mt="-8">
+        <CardBody mt="-8" >
           <Collapse startingHeight={0} in={show}> 
-            <Text color={'#fff'}>{IBeneficio.descricao}</Text>
+            <Text color={'#fff'} textAlign={'justify'}>{IBeneficio.descricao}</Text>
           </Collapse>
-            <Button onClick={handleToggle} className={styles.BlueButton} mt="2" colorScheme={"white"} variant="outline" rounded="3xl">Acessar</Button>
+            <Button  onClick={() => {
+              handleToggle();
+              setIsChevronUp(!isChevronUp);
+            }} 
+            className={styles.BlueButton} mt="2" colorScheme={"white"} variant="outline" rounded="3xl" display={'block'}>
+              {chevronIcon}
+            </Button>
         </CardBody>
       </Box>
     </Card>
   );
 }
+
 
 export function CardSkeleton() {
   return (

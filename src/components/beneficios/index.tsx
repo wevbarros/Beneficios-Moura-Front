@@ -3,6 +3,7 @@ import { useBeneficiosController } from "../../controllers/BeneficiosController"
 import { useRouter } from "next/router";
 import { Text, Flex } from "@chakra-ui/react";
 import 'animate.css';
+import { Footer } from "../cardBeneficioBeneficios/Footer";
 
 import styles from "./styles.module.scss";
 
@@ -22,34 +23,35 @@ export function Beneficios() {
   return (
     <>
       <title>Benefícios - Benefícios Moura</title>
-      <Flex className={`${styles.backGround}`}>
-          <div className="container min-vh-100 py-5 mt-5 pt-5">
-            {router.query.cat ? (
-              <Text marginTop={'5'} marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
-                Filtrando por: {router.query.cat}
-              </Text>
-            ) : (
-              <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"}>
-                Listando todos os benefícios
-              </Text>
-            )}
-            {beneficios.length > 0 ? (
-              output.map((beneficio) => (
-                <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
-              ))
-            ) : (
-              <>
-                <CardSkeleton />
-                <CardSkeleton />
-                <CardSkeleton />
-                <CardSkeleton />
-                <CardSkeleton />
-                <CardSkeleton />
-                <CardSkeleton />
-              </>
-            )}
-          </div>
-      </Flex>
+      <div className={`${styles.backGround}`}>
+        <div className="container min-vh-100 py-5">
+          {router.query.cat ? (
+            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"start"}>
+              Filtrando por: {router.query.cat}
+            </Text>
+          ) : (
+            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"start"}>
+              Listando Todos os Benefícios
+            </Text>
+          )}
+          {beneficios.length > 0 ? (
+            output.map((beneficio) => (
+              <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
+            ))
+          ) : (
+            <>
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+              <CardSkeleton />
+            </>
+          )}
+        </div>
+      </div>
+      <Footer/>
     </>
   );
 }
