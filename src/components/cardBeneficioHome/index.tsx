@@ -69,22 +69,23 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"
-        size={""}
+        size={"full"}
         scrollBehavior="outside"
       >
         <ModalOverlay />
         <ModalContent
           className={styles.modalContent}
-          height={{ base: "92vh", md: "90vh", lg: "100vh", xl: "100vh" }}
+          height={{ base: "112vh", md: "auto", lg: "100vh", xl: "100vh" }}
           width={{ base: "100vw", md: "60vw", lg: "50vw", xl: "45vw" }}
           textColor={"#fff"}
           border={"none"}
+          padding={"0"}
         >
-
+            <Image src={`${String(IBeneficio.urlImage)}`} alt={''} height={'640'} width={'960'} ></Image>
             <ModalHeader>{IBeneficio.nome}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <Text textAlign={"start"}>{IBeneficio.descricao}</Text>
+              <Text textAlign={{base: 'start', md: 'start', lg: 'start', xl: 'start'}}>{IBeneficio.descricao}</Text>
             </ModalBody>
             <ModalFooter justifyContent={"center"}>
               <Button colorScheme="blue" mr={3} onClick={onClose}>
