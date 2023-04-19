@@ -14,7 +14,7 @@ export function Categorias() {
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
-          paddingTop="2em"
+          paddingTop={{ base: "28", md: "20", lg: "10" }}
         >
           <Grid
             marginTop={"0"}
