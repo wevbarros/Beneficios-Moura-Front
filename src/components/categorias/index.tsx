@@ -26,10 +26,10 @@ export function Categorias() {
               <CardCategoria nome="Alimentação" id={'1'} urlImage="/images/categorias/alimentacao.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Mobilidade e Moradia" id={'2'} urlImage="/images/categorias/mobilidade_moradia.webp" />
+              <CardCategoria nome="Mobilidade e Moradia" id={'2'} urlImage="/images/categorias/mobilidade_moradia .webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
-              <CardCategoria nome="Saúde e Seguros" id={'3'} urlImage="/images/categorias/saude_seguros.webp" />
+              <CardCategoria nome="Saúde e Seguros" id={'3'} urlImage="/images/categorias/saude.webp" />
             </GridItem>
             <GridItem my={{ md: "6", lg: "10" }} px={{md: "10" , lg: "24"}}>
               <CardCategoria nome="Educação" id={'4'} urlImage="/images/categorias/educacao.webp" />

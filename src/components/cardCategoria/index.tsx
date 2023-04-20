@@ -9,9 +9,9 @@ import styles from "./styles.module.scss";
 export default function CardCategoria({nome, urlImage, id} : {nome: String, urlImage: string, id: String}) {
   return (
     <Link href={`/beneficios?cat=${nome}&id=${id}`}>
-      <Card className={styles.cardCategoria}>
-          <Image width="200" height="200" src={urlImage} alt="Categoria"/>
-          <Text color={"white"} align={"center"}>{nome}</Text>
+      <Card className={styles.cardCategoria}  bg="#182A74" borderRadius="lg" boxShadow="md" overflow="hidden">
+          <Image width="450" height="450" src={urlImage} alt="Categoria" borderRadius="lg"/>
+          <Text  background={ "#182A74"}  color={"white"} align={"center"} p={"2"}>{nome}</Text>
       </Card>
     </Link>
   )
