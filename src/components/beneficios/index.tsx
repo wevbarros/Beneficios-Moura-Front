@@ -24,14 +24,14 @@ export function Beneficios() {
     <>
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
-        <div className="container min-vh-100 py-5">
+        <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">
           {router.query.cat ? (
             <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"start"}>
               Filtrando por: {router.query.cat}
             </Text>
           ) : (
-            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"start"}>
-              Listando Todos os Benefícios
+            <Text marginLeft={"5"} fontWeight={"thin"} color={"#fff"} textAlign={"center"}>
+              Conheça Todos os Benefícios!
             </Text>
           )}
           {beneficios.length > 0 ? (
