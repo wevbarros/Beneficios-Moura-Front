@@ -14,6 +14,7 @@ import {
   Stack,
   Box,
 } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
@@ -23,6 +24,18 @@ import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [urlImage, setUrlImage] = useState("");
+
+  useEffect(() => {
+    function setImage(url: string) {
+      if (IBeneficio.urlImage.startsWith("https://")) {
+        setUrlImage(IBeneficio.urlImage);
+      } 
+    }
+    
+    setImage(IBeneficio.urlImage);
+  }, [IBeneficio.urlImage]);
+  
 
   return (
     <>
@@ -39,7 +52,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           className={styles.card}
         >
           <Image
-            src={`${String(IBeneficio.urlImage)}`}
+            src={`${String(urlImage)}`}
             width={"300"}
             height={"250"}
             alt={String(IBeneficio.nome)}
@@ -69,30 +82,44 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"
-        size={"full"}
-        scrollBehavior="outside"
-      >
+        size={{base: "xl", md: "xl", lg: "xl", xl: "xxl"}}
+        scrollBehavior="inside"
+>
         <ModalOverlay />
         <ModalContent
           className={styles.modalContent}
-          height={{ base: "112vh", md: "auto", lg: "100vh", xl: "100vh" }}
-          width={{ base: "100vw", md: "60vw", lg: "50vw", xl: "45vw" }}
+          height={{ base: "100vh", md: "auto", lg: "100vh", xl: "100vh" }}
+          width={{ xl: "40vw" }}
           textColor={"#fff"}
           border={"none"}
           padding={"0"}
         >
-            <Image src={`${String(IBeneficio.urlImage)}`} alt={''} height={'640'} width={'960'} ></Image>
-            <ModalHeader>{IBeneficio.nome}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Text textAlign={{base: 'start', md: 'start', lg: 'start', xl: 'start'}}>{IBeneficio.descricao}</Text>
-            </ModalBody>
-            <ModalFooter justifyContent={"center"}>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Fechar
-              </Button>
-            </ModalFooter>
-          </ModalContent>
+          <Image
+            src={`${String(IBeneficio.urlImage)}`}
+            alt={""}
+            height={"640"}
+            width={"960"}
+          ></Image>
+          <ModalHeader>{IBeneficio.nome}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text
+              textAlign={{
+                base: "start",
+                md: "start",
+                lg: "start",
+                xl: "start",
+              }}
+            >
+              {IBeneficio.descricao}
+            </Text>
+          </ModalBody>
+          <ModalFooter justifyContent={"center"}>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Fechar
+            </Button>
+          </ModalFooter>
+        </ModalContent>
       </Modal>
     </>
   );
