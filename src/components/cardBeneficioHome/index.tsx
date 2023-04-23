@@ -82,14 +82,14 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"
-        size={"full"}
-        scrollBehavior="outside"
-      >
+        size={{base: "xl", md: "xl", lg: "xl", xl: "xxl"}}
+        scrollBehavior="inside"
+>
         <ModalOverlay />
         <ModalContent
           className={styles.modalContent}
-          height={{ base: "112vh", md: "auto", lg: "100vh", xl: "100vh" }}
-          width={{ base: "100vw", md: "60vw", lg: "50vw", xl: "45vw" }}
+          height={{ base: "100vh", md: "auto", lg: "100vh", xl: "100vh" }}
+          width={{ xl: "40vw" }}
           textColor={"#fff"}
           border={"none"}
           padding={"0"}
