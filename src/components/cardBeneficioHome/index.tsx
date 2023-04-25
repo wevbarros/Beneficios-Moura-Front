@@ -56,7 +56,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
     }
 
     setImage(IBeneficio.urlImage);
-  }, [IBeneficio.urlImage]);
+  }, [IBeneficio.urlImage, isMediumScreen]);
   
   return (
     <>
