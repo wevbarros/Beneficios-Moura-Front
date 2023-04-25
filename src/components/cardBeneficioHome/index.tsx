@@ -19,23 +19,45 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
+import { useMediaQuery } from 'react-responsive';
 
 import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [urlImage, setUrlImage] = useState("");
+  const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">("inside");
+
+  const isSmallScreen = useMediaQuery({
+    query: '(max-width: 767px)'
+  });
+
+  const isMediumScreen = useMediaQuery({
+    query: '(min-width: 768px) and (max-width: 1023px)'
+  });
+
+  const isLargeScreen = useMediaQuery({
+    query: '(min-width: 1024px)'
+  });
+
+  const isExtraLargeScreen = useMediaQuery({
+    query: '(min-width: 1200px)'
+  });
+
 
   useEffect(() => {
     function setImage(url: string) {
       if (IBeneficio.urlImage.startsWith("https://")) {
         setUrlImage(IBeneficio.urlImage);
+        if( isMediumScreen) {
+          setScrollBehavior("outside");
+        }
       }
     }
 
     setImage(IBeneficio.urlImage);
   }, [IBeneficio.urlImage]);
-
+  
   return (
     <>
       <Link href={""} onClick={onOpen}>
@@ -82,7 +104,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         isOpen={isOpen}
         motionPreset="slideInBottom"
         size={{ base: "xl", md: "xl", lg: "xl", xl: "xxl" }}
-        scrollBehavior="inside"
+        scrollBehavior={scrollBehavior}
       >
         <ModalOverlay />
         <ModalContent
