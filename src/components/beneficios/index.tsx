@@ -41,19 +41,30 @@ export function Beneficios() {
     pageNumbers.push(i);
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  
+
   const handleClick = (event: any) => {
     setCurrentPage(Number(event.target.id));
+    scrollToTop();
   };
 
   const handlePrevClick = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      scrollToTop();
     }
   };
 
   const handleNextClick = () => {
     if (currentPage < pageNumbers.length) {
       setCurrentPage(currentPage + 1);
+      scrollToTop();
     }
   };
 
@@ -117,19 +128,14 @@ export function Beneficios() {
               </Flex>
             </>
           ) : (
-            <VStack
-              divider={<StackDivider borderColor="gray.200" />}
-              spacing={4}
-              align="stretch"
-              marginTop={6}
-            >
+            <Flex display={"flex"} direction={"column"} justify="center" marginTop={6}>
               <CardSkeleton />
               <CardSkeleton />
               <CardSkeleton />
               <CardSkeleton />
               <CardSkeleton />
               <CardSkeleton />
-            </VStack>
+            </Flex>
           )}
         </div>
       </div>
