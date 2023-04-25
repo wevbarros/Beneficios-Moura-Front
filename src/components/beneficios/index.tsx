@@ -103,8 +103,7 @@ export function Beneficios() {
                     disabled={currentPage === 1}
                     onClick={handlePrevClick}
                     leftIcon={<FaChevronLeft />}
-                    height={{ base: "6vh", md: "11vh", lg: "6vh" }}
-                    width={{ base: "6vh", md: "6vh", lg: "6vh" }}
+                    width={{ base: "4vw", md: "4vw", lg: "1vw" }}
                   ></Button>
                   {pageNumbers.map((number) => (
                     <Button
@@ -121,8 +120,7 @@ export function Beneficios() {
                     disabled={currentPage === pageNumbers.length}
                     onClick={handleNextClick}
                     rightIcon={<FaChevronRight />}
-                    height={{ base: "6vh", md: "11vh", lg: "6vh" }}
-                    width={{ base: "6vh", md: "6vh", lg: "6vh" }}
+                    width={{ base: "4vw", md: "4vw", lg: "1vw" }}
                   ></Button>
                 </HStack>
               </Flex>
