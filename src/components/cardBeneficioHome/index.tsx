@@ -19,24 +19,45 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
+import { useMediaQuery } from 'react-responsive';
 
 import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [urlImage, setUrlImage] = useState("");
+  const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">("inside");
+
+  const isSmallScreen = useMediaQuery({
+    query: '(max-width: 767px)'
+  });
+
+  const isMediumScreen = useMediaQuery({
+    query: '(min-width: 768px) and (max-width: 1023px)'
+  });
+
+  const isLargeScreen = useMediaQuery({
+    query: '(min-width: 1024px)'
+  });
+
+  const isExtraLargeScreen = useMediaQuery({
+    query: '(min-width: 1200px)'
+  });
+
 
   useEffect(() => {
     function setImage(url: string) {
       if (IBeneficio.urlImage.startsWith("https://")) {
         setUrlImage(IBeneficio.urlImage);
-      } 
+        if( isMediumScreen) {
+          setScrollBehavior("outside");
+        }
+      }
     }
-    
-    setImage(IBeneficio.urlImage);
-  }, [IBeneficio.urlImage]);
-  
 
+    setImage(IBeneficio.urlImage);
+  }, [IBeneficio.urlImage, isMediumScreen]);
+  
   return (
     <>
       <Link href={""} onClick={onOpen}>
@@ -82,9 +103,9 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         onClose={onClose}
         isOpen={isOpen}
         motionPreset="slideInBottom"
-        size={{base: "xl", md: "xl", lg: "xl", xl: "xxl"}}
-        scrollBehavior="inside"
->
+        size={{ base: "xl", md: "xl", lg: "xl", xl: "xxl" }}
+        scrollBehavior={scrollBehavior}
+      >
         <ModalOverlay />
         <ModalContent
           className={styles.modalContent}
@@ -115,7 +136,12 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
             </Text>
           </ModalBody>
           <ModalFooter justifyContent={"center"}>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            {1 < 0 && (
+              <Button variant={"link"} colorScheme="white">
+                <Link href={"Aqui vai o link do beneficio"}>Acessar</Link>
+              </Button>
+            )}
+            <Button colorScheme="blue" ml={3} onClick={onClose}>
               Fechar
             </Button>
           </ModalFooter>
