@@ -12,7 +12,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
-import { Footer } from "../cardBeneficioBeneficios/Footer";
 
 import styles from "./styles.module.scss";
 
@@ -137,7 +136,6 @@ export function Beneficios() {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -17,16 +17,12 @@ export default function Beneficios() {
 
       <Flex display={'flex'} flexDirection="column" className={styles.gradienteAzul} >
         <div className='animate__animated animate__fadeInLeftBig'>
-          <SideScroll categoria="Alimentação" catId='1' />
-          <SideScroll categoria="Mobilidade e Moradia" catId='2' />
-          <SideScroll categoria="Saúde e Seguros" catId='3' />
-          <SideScroll categoria="Educação" catId='4' />
-          <SideScroll categoria="Estilo de Vida" catId='5' />
-          <SideScroll categoria="Benefícios Corporativos" catId='6' />
+          <SideScroll categoria="Para Você Estar Lado a Lado" catId='1' />
+          <SideScroll categoria="Para Você Ficar Bem" catId='2' />
+          <SideScroll categoria="Para Você Economizar" catId='3' />
+          <SideScroll categoria="Para Você Ficar Saudável" catId='4' />
         </div>
       </Flex>
-
-
     </>
   )
 }
