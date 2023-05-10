@@ -12,8 +12,9 @@ export default function NavBar() {
     >
       <div className="container animate__animated animate__fadeInDown" >
         <Link className="navbar-brand d-flex align-items-center" href="/">
-          <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/>
-          <span>Para Você</span>
+          <img id="Logo" src='/images/para-voce.png' alt='Logo Moura' />
+          {/* <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/> */}
+          {/* <span>Para Você</span> */}
         </Link>
         <button
           className={`navbar-toggler ${styles.semBorda}`}
