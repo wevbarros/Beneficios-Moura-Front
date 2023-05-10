@@ -12,6 +12,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
+import 'animate.css';
 
 import styles from "./styles.module.scss";
 
@@ -71,7 +72,7 @@ export function Beneficios() {
     <>
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
-        <div className="container min-vh-100 py-5">
+        <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">
           {router.query.cat ? (
             <Text
               marginLeft={"5"}
@@ -84,11 +85,13 @@ export function Beneficios() {
           ) : (
             <Text
               marginLeft={"5"}
-              fontWeight={"thin"}
+              // fontWeight={"thin"}
+              fontWeight={"light"}
+              fontSize={"20px"}
               color={"#fff"}
-              textAlign={"start"}
+              textAlign={"center"}
             >
-              Listando Todos os Benefícios
+              Conheça Todos os Benefícios
             </Text>
           )}
           {beneficios.length > 0 ? (
