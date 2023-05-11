@@ -1,8 +1,5 @@
-import { FaBuffer } from "react-icons/fa";
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
-import Script from "next/script";
-import Image from "next/image";
 import 'animate.css'
 
 export default function NavBar() {
@@ -13,15 +10,12 @@ export default function NavBar() {
       <div className="container animate__animated animate__fadeInDown" >
         <Link className="navbar-brand d-flex align-items-center" href="/">
           <img id="Logo" src='/images/para-voce.png' alt='Logo Moura' />
-          {/* <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/> */}
-          {/* <span>Para Você</span> */}
         </Link>
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"
           data-bs-target="#navcol-5"
         >
-          <span className="visually-hidden">Toggle navigation</span>
           <span className="navbar-toggler-icon"></span>
         </button>
         <div id="navcol-5" className="collapse navbar-collapse">

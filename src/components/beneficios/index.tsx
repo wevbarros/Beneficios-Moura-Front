@@ -20,7 +20,7 @@ export function Beneficios() {
   const router = useRouter();
   const { beneficios } = useBeneficiosController();
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(8);
 
   let output;
 
