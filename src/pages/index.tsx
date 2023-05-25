@@ -6,11 +6,14 @@ import { useBeneficiosController } from '../controllers/BeneficiosController'
 import { useRouter } from 'next/router';
 import { Carousel } from '../components/Carousel/Carousel';
 import 'animate.css';
+import NavBar from '../components/NavBar';
+
 
 export default function Beneficios() {
 
   return (
     <>
+      <NavBar />
       <Flex>
         <Carousel />
       </Flex>
