@@ -11,7 +11,7 @@ export default function LoginPage() {
         <div className={styles.gradienteAzul}>
             <div className={styles.imageContainer}>
                 {/* Adicione aqui o elemento da imagem */}
-                <img src="pages/src/public/images/logo_ficar_saudavel.png" alt="Imagem" />
+                <img src="../../images/logo_login.png" alt="Imagem" />
             </div>
             <LoginCard title='Faça seu Login'>
                 <h5 className={styles.subtitle}>Aproveite o que só o Grupo Moura te oferece!</h5>
@@ -20,7 +20,7 @@ export default function LoginPage() {
                     <Input type="password" placeholder="Senha" />
                     <Link href='' className={styles.recoveryLink}>Recuperação de Senha</Link>
                     <Stack spacing={4} direction='row' align='center' justify='center' className={styles.buttonContainer}>
-                        <Button bg="#0D1740" colorScheme='none' size='md' width="180px" height="45px">
+                        <Button rounded={"92"}  bg="#0D1740" colorScheme='none' size='md' width="180px" height="45px">
                             Entrar
                         </Button>
                     </Stack>
