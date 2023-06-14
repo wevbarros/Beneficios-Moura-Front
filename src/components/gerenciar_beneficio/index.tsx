@@ -1,9 +1,16 @@
 import NavBar from "../NavBar";
 import styles from './gerenciar_beneficio.module.scss';
 
-import { Button, Stack } from '@chakra-ui/react';
+import { Button, Stack} from '@chakra-ui/react';
 
-export default function Gerenciar({ title }) {
+
+
+
+interface GerenciarProps {
+  title: string;
+}
+
+export default function Gerenciar({ title }: GerenciarProps) {
   return (
     <div className={styles.gradienteAzul}>
       <NavBar />
@@ -14,6 +21,7 @@ export default function Gerenciar({ title }) {
             Adicionar Benefício
           </Button>
         </Stack>
+       
       </div>
     </div>
   );
