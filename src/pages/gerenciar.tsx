@@ -1,11 +1,12 @@
-import NavBar from '../components/NavBar'
 import Gerenciar from '../components/gerenciar_beneficio'
+
 
 export default function GerenciarPage() {
 
   return (
-    <>
-      <Gerenciar />
-    </>
+    <div>
+      <Gerenciar title="Lista de Benefícios" />
+    </div>
+    
   )
 }

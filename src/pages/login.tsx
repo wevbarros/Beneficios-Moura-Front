@@ -3,7 +3,7 @@ import Link from 'next/link'
 import LoginCard from '../components/login/LoginCard'
 import styles from '../styles/login.module.scss'
 
-import Input from '../components/input/input'
+import Input from '../components/input_login/input'
 import { Button, Stack } from '@chakra-ui/react'
 
 export default function LoginPage() {
