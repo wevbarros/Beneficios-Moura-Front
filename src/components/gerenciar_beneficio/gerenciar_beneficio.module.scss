@@ -1,34 +1,32 @@
 .gradienteAzul {
-    background: linear-gradient(180deg, #182a74 40vh, #007dce);
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  background: linear-gradient(180deg, #182a74 40vh, #007dce);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .card {
-    background-color: #FFFFFF;
-    width: 80vw;
-    height: 50vh;
-    padding: 10px;
-    border-radius: 12px;
-    position: relative;
-  }
+.gradienteModal {
+background: linear-gradient(180deg, #182a74 40vh, #007dce) !important;
+}
+.card {
+  background-color: #FFFFFF;
+  width: 80vw;
+  height: 50vh;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative;
+}
 
 
 .title {
-  text-align: center;
+text-align: center;
 
 }
-  
-  .buttonContainer {
-    position: absolute;
-    top: 10px;
-    left: 30px;
-  }
-  
-  
 
-  
-  
+.buttonContainer {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+}
