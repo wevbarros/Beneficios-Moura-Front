@@ -1,33 +1,16 @@
 import { useState } from "react";
 import NavBar from "../NavBar";
-import FormBeneficio from "../formBeneficio";
+import { FormCadastrarBeneficio } from "../formCadastrarBeneficio";
 import styles from "./gerenciar_beneficio.module.scss";
 import { CardBeneficio } from "../cardBeneficioHome";
-import {
-  Input,
-  Link,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Select,
-  useDisclosure,
-} from "@chakra-ui/react";
 import { Button, Stack } from "@chakra-ui/react";
+import error from "next/error";
 
 interface GerenciarProps {
   title: string;
 }
 
 export default function Gerenciar({ title }: GerenciarProps) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">(
-    "inside"
-  );
-
   return (
     <>
       <div className={styles.gradienteAzul}>
@@ -41,49 +24,10 @@ export default function Gerenciar({ title }: GerenciarProps) {
             justify="flex-start"
             className={styles.buttonContainer}
           >
-            <Button
-              bg="#0D1740"
-              colorScheme="none"
-              size="md"
-              width="180px"
-              height="45px"
-              onClick={onOpen}
-            >
-              Adicionar Benefício
-            </Button>
+            <FormCadastrarBeneficio />
           </Stack>
         </div>
       </div>
-
-      <Modal
-        isCentered
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size={{ base: "xl", md: "xl", lg: "xl", xl: "xxl" }}
-        scrollBehavior={scrollBehavior}
-      >
-        <ModalOverlay />
-        <ModalContent
-          height={{ base: "100vh", md: "auto", lg: "100vh", xl: "100vh" }}
-          width={{ xl: "40vw" }}
-          textColor={"#fff"}
-          border={"none"}
-          padding={"0"}
-          className={styles.gradienteModal}
-        >
-          <ModalHeader></ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <FormBeneficio />
-          </ModalBody>
-          <ModalFooter justifyContent={"center"}>
-            <Button colorScheme="blue" ml={3} onClick={onClose}>
-              Fechar
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   );
 }

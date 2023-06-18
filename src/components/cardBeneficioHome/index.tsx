@@ -73,7 +73,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           className={styles.card}
         >
           <Image
-            src={`${String(IBeneficio.urlImage)}`}
+            src={`${String(IBeneficio.urlImage)}`} // muda para urlImage para não crashar
             width={"300"}
             height={"250"}
             alt={String(IBeneficio.nome)}
@@ -116,7 +116,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           padding={"0"}
         >
           <Image
-            src={`${String(IBeneficio.urlImage)}`}
+            src={`${String(IBeneficio.urlImage)}`} // muda para urlImage para não crashar
             alt={""}
             height={"640"}
             width={"960"}
