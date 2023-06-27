@@ -20,7 +20,7 @@ jobs:
         with:
           registry: conteinerregistrygpm.azurecr.io
           username: ConteinerRegistryGPM
-          password: MhViWkEdezvTZwl6svnjS5oAdsVrU4+9k+XADEotTK+ACRAqAso1
+          password: N9jYcdu9pdK67PAqLJ0PZNGQT8BpIW0fjKZfObtcWt+ACRALqn4F
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v2
