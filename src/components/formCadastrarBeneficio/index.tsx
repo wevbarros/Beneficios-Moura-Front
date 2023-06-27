@@ -22,8 +22,9 @@ import { CardBeneficio } from "../cardBeneficioHome";
 import styles from "./styles.module.scss";
 import { api } from "../../services/api";
 import { AxiosResponse } from "axios";
+import { color } from "framer-motion";
 
-export function FormCadastrarBeneficio(){
+export function FormCadastrarBeneficio() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState(null);
@@ -49,7 +50,7 @@ export function FormCadastrarBeneficio(){
   };
 
   const handleImageChange = (e: any) => {
-    if(e.target.files[0]) {
+    if (e.target.files[0]) {
       setImagem(e.target.files[0]);
       setPreviewImage(URL.createObjectURL(e.target.files[0]));
     }
@@ -81,6 +82,12 @@ export function FormCadastrarBeneficio(){
       <Button
         bg="#0D1740"
         colorScheme="none"
+        sx={{
+          _hover: {
+            backgroundColor: "#182A74"
+          },
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
+        }}
         size="md"
         width="180px"
         height="45px"
@@ -99,8 +106,8 @@ export function FormCadastrarBeneficio(){
       >
         <ModalOverlay />
         <ModalContent
-          height={{ base: "100vh", md: "auto", lg: "100vh", xl: "100vh" }}
-          width={{ xl: "40vw" }}
+          height={{ base: "70vh", md: "auto", lg: "70vh", xl: "70vh" }}
+          width={{ base: "70vw", md: "70vw", lg: "70vw", xl: "70vw" }}
           textColor={"#fff"}
           border={"none"}
           padding={"0"}
@@ -108,98 +115,144 @@ export function FormCadastrarBeneficio(){
         >
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
+
+
+
+
+
           <ModalBody>
-            <form onSubmit={handleSubmit}>
-              <FormControl isRequired isInvalid={!!error}>
-                <Input
-                  bgColor={"white"}
-                  color={"black"}
-                  rounded={"32"}
-                  type="text"
-                  value={nome}
-                  name="nome"
-                  placeholder="Nome do Benefício"
-                  onChange={handleNameChange}
-                />
-              </FormControl>
+            <form onSubmit={handleSubmit} className={styles.fomrbody}>
+              <div className={styles.box1}>
+                <div className={styles.textoform}>
+                  <FormControl isRequired isInvalid={!!error} >
+                    <Input
+                      bgColor={"white"}
+                      color={"black"}
+                      rounded={"32"}
+                      type="text"
+                      value={nome}
+                      name="nome"
+                      placeholder="Nome do Benefício"
+                      onChange={handleNameChange}
+                    />
+                  </FormControl>
 
-              <FormControl mt={4} isRequired>
-                <Select
-                  onChange={handleCategoryChange}
-                  bgColor={"white"}
-                  color={"gray"}
-                  rounded={"32"}
-                  placeholder="Selecione a categoria"
-                >
-                  <option value="1">Alimentação</option>
-                  <option value="2">Educação</option>
-                  <option value="3">Saúde</option>
-                  <option value="4">Transporte</option>
-                </Select>
-              </FormControl>
+                  <FormControl mt={4} isRequired>
+                    <Select
+                      onChange={handleCategoryChange}
+                      bgColor={"white"}
+                      color={"gray"}
+                      rounded={"32"}
+                      placeholder="Selecione a Categoria"
+                    >
+                      <option value="1">Lado a Lado</option>
+                      <option value="2">Ficar Bem</option>
+                      <option value="3">Economizar</option>
+                      <option value="4">Ficar Saudável</option>
+                    </Select>
+                  </FormControl>
 
-              <FormControl mt={4} isRequired>
-                <Input
-                  className={styles.inputFile}
-                  bgColor={"white"}
-                  color={"black"}
-                  rounded={"32"}
-                  type="file"
-                  onChange={handleImageChange}
-                  name="imagem"
-                  accept="image/*"
-                  placeholder="Insira a imagem"
-                />
-              </FormControl>
+                  <FormControl mt={4} isRequired>
+                    <Input
+                      className={styles.inputFile}
+                      bgColor={"white"}
+                      color={"black"}
+                      rounded={"32"}
+                      type="file"
+                      onChange={handleImageChange}
+                      name="imagem"
+                      accept="image/*"
+                      placeholder="Insira a imagem"
+                    />
+                  </FormControl>
+                </div>
 
-              <FormControl mt={4} isRequired>
-                <Textarea
-                  value={descricao}
-                  bgColor={"white"}
-                  color={"black"}
-                  name="descricao"
-                  placeholder="Descricao"
-                  height={"44"}
-                  onChange={handleDescriptionChange}
-                />
-              </FormControl>
-
-              {previewImage && (
-                <Box mt={4}>
-                  <FormLabel>Pré-visualização</FormLabel>
-                  <CardBeneficio
-                    id={NaN}
-                    categoria={String()}
-                    descricao={descricao}
-                    nome={nome}
-                    urlImage={previewImage}
+                <FormControl isRequired className={styles.descform}>
+                  <Textarea
+                    value={descricao}
+                    bgColor={"white"}
+                    color={"black"}
+                    name="descricao"
+                    placeholder="Descrição"
+                    height={"44"}
+                    onChange={handleDescriptionChange}
                   />
-                </Box>
-              )}
+                </FormControl>
+              </div>
 
-              {error && (
-                <Box mt={4} color="red.500">
-                  <FormErrorMessage>{error}</FormErrorMessage>
-                </Box>
-              )}
+              <div className={styles.box2}>
+                <div className={styles.previsualizacao}>
+                  {previewImage && (
+                    <Box mt={2}>
+                      <FormLabel textAlign={"center"} >Pré-visualização</FormLabel>
+                      <CardBeneficio
+                        id={NaN}
+                        categoria={String()}
+                        descricao={descricao}
+                        nome={nome}
+                        urlImage={previewImage}
+                      />
+                    </Box>
+                  )}
 
-              <Button
-                mt={4}
-                colorScheme="teal"
-                isLoading={isLoading}
-                type="submit"
-              >
-                Enviar
-              </Button>
+                  {error && (
+                    <Box mt={4} color="red.500">
+                      <FormErrorMessage>{error}</FormErrorMessage>
+                    </Box>
+                  )}
+
+                  <Button
+                    colorScheme="teal"
+                    backgroundColor={"#0B1333"}
+                    sx={{
+                      _hover: {
+                        backgroundColor: "#182A74"
+                      },
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
+                    }}
+                    borderRadius={"30px"}
+                    isLoading={isLoading}
+                    type="submit"
+                    width={"60%"}
+                  >
+                    Salvar Novo Benefício
+                  </Button>
+                </div>
+                <div className={styles.paravoceform}>
+                  <img src="../../images/paravoce-form.png" alt="" width={"350vw"} />
+                </div>
+
+              </div>
             </form>
           </ModalBody>
+
+
+
+
+
+
+
+
+
           <ModalFooter justifyContent={"center"}>
-            <Button colorScheme="blue" ml={3} onClick={onClose}>
-              Fechar
+            <Button
+              colorScheme="blue"
+              ml={3}
+              onClick={onClose}
+              backgroundColor={"#AD1111"}
+              sx={{
+                _hover: {
+                  backgroundColor: "#182A74"
+                },
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
+              }}
+              borderRadius={"30px"}
+            >
+              Cancelar
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal >
     </>
   );
 };

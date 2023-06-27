@@ -1,3 +1,51 @@
 .gradienteAzul {
   background: linear-gradient(180deg, #182a74 40vh, #007dce) !important;
 }
+
+.bodyform {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box1 {
+  display: flex;
+}
+
+.box1 > * {
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+}
+
+.textoform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.descform {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box2 {
+  margin-top: 1.5em;
+  display: flex;
+}
+
+.box2 > * {
+  margin: 0 auto;
+}
+
+.paravoceform {
+  display: flex;
+  justify-content: space-around;
+  right: 0;
+}
+
+.previsualizacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
