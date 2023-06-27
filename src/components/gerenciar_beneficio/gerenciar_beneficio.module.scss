@@ -8,8 +8,9 @@
 }
 
 .gradienteModal {
-background: linear-gradient(180deg, #182a74 40vh, #007dce) !important;
+  background: linear-gradient(180deg, #182a74 40vh, #007dce) !important;
 }
+
 .card {
   background-color: #FFFFFF;
   width: 80vw;
@@ -21,8 +22,8 @@ background: linear-gradient(180deg, #182a74 40vh, #007dce) !important;
 
 
 .title {
-text-align: center;
-
+  text-align: center;
+  font-size: 2em;
 }
 
 .buttonContainer {

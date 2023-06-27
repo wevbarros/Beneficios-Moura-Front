@@ -17,6 +17,8 @@ import {
   ModalHeader,
   ModalOverlay,
   useDisclosure,
+  Center,
+  Flex,
 } from "@chakra-ui/react";
 import { CardBeneficio } from "../cardBeneficioHome";
 import styles from "./styles.module.scss";
@@ -106,8 +108,8 @@ export function FormCadastrarBeneficio() {
       >
         <ModalOverlay />
         <ModalContent
-          height={{ base: "70vh", md: "auto", lg: "70vh", xl: "70vh" }}
-          width={{ base: "70vw", md: "70vw", lg: "70vw", xl: "70vw" }}
+          height={{ base: "80vh", md: "auto", lg: "80vh", xl: "80vh" }}
+          width={{ base: "60vw", md: "60vw", lg: "60vw", xl: "60vw" }}
           textColor={"#fff"}
           border={"none"}
           padding={"0"}
@@ -184,7 +186,7 @@ export function FormCadastrarBeneficio() {
                 <div className={styles.previsualizacao}>
                   {previewImage && (
                     <Box mt={2}>
-                      <FormLabel textAlign={"center"} >Pré-visualização</FormLabel>
+                      <FormLabel textAlign={"center"} >Pré-Visualização</FormLabel>
                       <CardBeneficio
                         id={NaN}
                         categoria={String()}
@@ -213,13 +215,12 @@ export function FormCadastrarBeneficio() {
                     borderRadius={"30px"}
                     isLoading={isLoading}
                     type="submit"
-                    width={"60%"}
                   >
                     Salvar Novo Benefício
                   </Button>
                 </div>
-                <div className={styles.paravoceform}>
-                  <img src="../../images/paravoce-form.png" alt="" width={"350vw"} />
+                <div className={styles.paravoceform} >
+                  <img src="../../images/paravoce-form.png" alt="" width={"400em"} />
                 </div>
 
               </div>
@@ -230,14 +231,9 @@ export function FormCadastrarBeneficio() {
 
 
 
-
-
-
-
-          <ModalFooter justifyContent={"center"}>
+          <ModalFooter width={"100%"} display={"flex"} justifyContent={"space-around"} position={"absolute"} bottom={0} >
             <Button
               colorScheme="blue"
-              ml={3}
               onClick={onClose}
               backgroundColor={"#AD1111"}
               sx={{
