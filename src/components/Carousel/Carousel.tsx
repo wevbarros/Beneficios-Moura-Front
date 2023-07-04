@@ -10,24 +10,31 @@ import "swiper/css/pagination";
 const slides = [
   {
     id: 1,
-    title: "TotalPass",
-    text: "A TotalPass é o Benefício que dá Foco Total para a Saúde Física e Mental. Comece Hoje!",
-    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/totalpasscover.jpg",
-    alt: "Imagem 1",
+    title: "Bem-Vindo!",
+    text: " Este é o “Moura pra Você” - um espaço dedicado ao seu bem-estar. Vamos compartilhar os benefícios oferecidos pela Moura aos seus colaboradores e seus familiares, em sinergia com a nossa história e com o nosso jeito de ser, em que fortalecer vínculos garante um futuro melhor.",
+    src: "../../images/carousel/background1.jpg",
+    alt: "Imagem aleatória",
   },
   {
     id: 2,
-    title: "Cesta Básica",
-    text: "Cesta basica todos os meses para você e sua família. Aproveite e faça parte da família Mágica",
-    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/bolsaalimentacao.jpg",
-    alt: "Imagem 2",
+    title: "TotalPass",
+    text: " Aqui você será direcionado para um aplicativo voltado para a sua saúde e bem-estar, bem como dos seus dependentes.",
+    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/totalpasscover.jpg",
+    alt: "Uma mulher treinando na academia",
   },
   {
     id: 3,
+    title: "Cesta Básica",
+    text: "Prêmio mensal disponível para funcionários conforme resultados de sua respectiva Unidade.",
+    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/bolsaalimentacao.jpg",
+    alt: "Uma mesa posta para o almoço",
+  },
+  {
+    id: 4,
     title: "Material Escolar",
-    text: "Material escolar para seus filhos. Aproveite e faça parte da família Mágica",
+    text: "Acreditamos que a educação é um grande agente de transformação, por isso, todos os anos, incentivamos os estudos dos filhos dos nossos colaboradores.",
     src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/kitescolar.jpg",
-    alt: "Imagem 3",
+    alt: "Itens esolares",
   },
 ];
 
@@ -72,6 +79,7 @@ export function Carousel() {
                   xl: "flex-start",
                 }}
                 marginLeft={{ base: "5", md: "10", lg: "12", xl: "5vw" }}
+                marginRight={{ base: "5", md: "10", lg: "12", xl: "5vw" }}
                 width={{ base: "", md: "xl", lg: "containet.lg", xl: "container.xl" }}
                 opacity="0.9"
               >
@@ -86,7 +94,7 @@ export function Carousel() {
                   {slide.title}
                 </Heading>
                 <Text
-                  fontSize={{ base: "x-large", lg: "x-large", md: "x-large", xl: "xxx-large" }}
+                  fontSize={{ base: "2vh", lg: "3.5vh", md: "3.5vh", xl: "3vh" }}
                   fontWeight={"light"}
                   color={"#fff"}
                 >

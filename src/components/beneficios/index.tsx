@@ -11,6 +11,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
+import NavBar from '../../components/NavBar';
 import { useRouter } from "next/router";
 import 'animate.css';
 
@@ -20,7 +21,7 @@ export function Beneficios() {
   const router = useRouter();
   const { beneficios } = useBeneficiosController();
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(8);
 
   let output;
 
@@ -47,7 +48,7 @@ export function Beneficios() {
       behavior: "smooth"
     });
   }
-  
+
 
   const handleClick = (event: any) => {
     setCurrentPage(Number(event.target.id));
@@ -70,6 +71,7 @@ export function Beneficios() {
 
   return (
     <>
+      <NavBar />
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
         <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">
