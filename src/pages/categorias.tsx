@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-sync-scripts */
-import { Categorias } from '../components/categorias'
+import { Categorias } from "../components/categorias";
+import { ProtectedRoute } from "../components/protectRoute";
 
 export default function Beneficios() {
-  
   return (
     <>
-      <main>
-        <Categorias />
-      </main>
+      <ProtectedRoute>
+        <main>
+          <Categorias />
+        </main>
+      </ProtectedRoute>
     </>
-  )
+  );
 }
