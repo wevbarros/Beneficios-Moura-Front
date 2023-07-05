@@ -1,12 +1,12 @@
-import Gerenciar from '../components/gerenciar_beneficio'
-
+import Gerenciar from "../components/gerenciar_beneficio";
+import { ProtectedRoute } from "../components/protectRoute";
 
 export default function GerenciarPage() {
-
   return (
-    <div>
-      <Gerenciar title="Lista de Benefícios" />
-    </div>
-    
-  )
+    <ProtectedRoute>
+      <div>
+        <Gerenciar title="Lista de Benefícios" />
+      </div>
+    </ProtectedRoute>
+  );
 }

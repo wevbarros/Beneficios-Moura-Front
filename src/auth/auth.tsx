@@ -4,7 +4,7 @@ import { Cookies } from "react-cookie";
 import { AuthContextType, User } from "./types";
 import { api } from "../services/api";
 import { AxiosError } from "axios";
-import jwt from 'jsonwebtoken';
+import { JWTDecode, JWTCreate } from "../utils/JWTDecode"; 
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -19,6 +19,7 @@ const AuthContext = createContext<AuthContextType>({
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
 
+  const chave = process.env.SECRETE_KEY;
   const login = async (matricula: string, password: string) => {
     try {
       const response = await api.post("/login", { matricula, password });
@@ -27,8 +28,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       const cookies = new Cookies();
       cookies.set("moura-pra-voce-cookie", token, { path: "/" });
-      
-      setUser(null);
+      const decoded = JWTDecode(token);
+
+      if (decoded) {
+        const user = {
+          id: decoded.id,
+          matricula: decoded.matricula,
+          nome: decoded.nome,
+          email: decoded.email,
+        };
+        setUser(user);
+      }
+      console.log(user);
+
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         if (error.response) {
