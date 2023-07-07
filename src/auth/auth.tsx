@@ -1,10 +1,11 @@
 // auth.tsx
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { Cookies } from "react-cookie";
 import { AuthContextType, User } from "./types";
 import { api } from "../services/api";
 import { AxiosError } from "axios";
-import { JWTDecode, JWTCreate } from "../utils/JWTDecode"; 
+import { JWTDecode, JWTCreate } from "../utils/JWT";
+import { useRouter } from "next/router";
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -14,33 +15,40 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => Promise.resolve(),
   logout: () => {},
+  isLogged: () => null,
 });
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
-  const chave = process.env.SECRETE_KEY;
+  const isLogged = () => {
+    const cookies = new Cookies();
+    const token = cookies.get("moura-pra-voce-cookie");
+
+    if (token) {
+      const decoded = JWTDecode(token);
+      if (decoded) {
+        const user = decoded.user;
+        setUser(user);
+        return user;
+      }
+    }
+    return null;
+  };
+
   const login = async (matricula: string, password: string) => {
     try {
-      const response = await api.post("/login", { matricula, password });
-
-      const token = response.data.token;
-
       const cookies = new Cookies();
-      cookies.set("moura-pra-voce-cookie", token, { path: "/" });
-      const decoded = JWTDecode(token);
+      const response = await api.post("/login", { matricula, password });
+      const token = response.data.token;
+      const decoded = JWTDecode(response.data.token);
 
       if (decoded) {
-        const user = {
-          id: decoded.id,
-          matricula: decoded.matricula,
-          nome: decoded.nome,
-          email: decoded.email,
-        };
-        setUser(user);
+        setUser(decoded.user);
       }
-      console.log(user);
-
+      cookies.set("moura-pra-voce-cookie", token, { path: "/" });
+      router.push("/categorias");
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         if (error.response) {
@@ -59,7 +67,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isLogged }}>
       {children}
     </AuthContext.Provider>
   );
