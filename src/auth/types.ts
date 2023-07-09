@@ -4,6 +4,7 @@ export interface User {
   email: string;
   matricula: string;
   nome: string;
+  token: string;
 }
 
 export interface AuthContextType {
@@ -11,4 +12,5 @@ export interface AuthContextType {
   login: (matricula: string, password: string) => Promise<void>;
   logout: () => void;
   isLogged: () => User | null;
+  token: string | null;
 }

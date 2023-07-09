@@ -16,10 +16,12 @@ const AuthContext = createContext<AuthContextType>({
   login: () => Promise.resolve(),
   logout: () => {},
   isLogged: () => null,
+  token: "",
 });
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState("");
   const router = useRouter();
 
   const isLogged = () => {
@@ -31,6 +33,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       if (decoded) {
         const user = decoded.user;
         setUser(user);
+        setToken(token);
         return user;
       }
     }
@@ -67,7 +70,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLogged }}>
+    <AuthContext.Provider value={{ user, login, logout, isLogged, token }}>
       {children}
     </AuthContext.Provider>
   );

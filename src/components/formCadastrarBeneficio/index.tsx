@@ -24,12 +24,13 @@ import { CardBeneficio } from "../cardBeneficioHome";
 import styles from "./styles.module.scss";
 import { api } from "../../services/api";
 import { AxiosResponse } from "axios";
-import { color } from "framer-motion";
+import { useAuth } from "../../auth/auth";
 
 export function FormCadastrarBeneficio() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState(null);
+  const { token } = useAuth();
   const [previewImage, setPreviewImage] = useState("");
   const [categoria, setCategoria] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -65,12 +66,22 @@ export function FormCadastrarBeneficio() {
     formData.append("nome", nome);
     formData.append("categoria", categoria);
     formData.append("descricao", descricao);
+    // formData.append("token", token);
     if (imagem) {
       formData.append("imagem", imagem);
     }
 
     try {
-      const response: AxiosResponse = await api.post("/cadastrarBeneficio", formData);
+      const response: AxiosResponse = await api.post(
+        "/cadastrarBeneficio",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(response);
       alert("Benefício cadastrado com sucesso!");
     } catch (error) {
@@ -86,7 +97,7 @@ export function FormCadastrarBeneficio() {
         colorScheme="none"
         sx={{
           _hover: {
-            backgroundColor: "#182A74"
+            backgroundColor: "#182A74",
           },
           boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
         }}
@@ -118,15 +129,11 @@ export function FormCadastrarBeneficio() {
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
 
-
-
-
-
           <ModalBody>
             <form onSubmit={handleSubmit} className={styles.fomrbody}>
               <div className={styles.box1}>
                 <div className={styles.textoform}>
-                  <FormControl isRequired isInvalid={!!error} >
+                  <FormControl isRequired isInvalid={!!error}>
                     <Input
                       bgColor={"white"}
                       color={"black"}
@@ -186,7 +193,9 @@ export function FormCadastrarBeneficio() {
                 <div className={styles.previsualizacao}>
                   {previewImage && (
                     <Box mt={2}>
-                      <FormLabel textAlign={"center"} >Pré-Visualização</FormLabel>
+                      <FormLabel textAlign={"center"}>
+                        Pré-Visualização
+                      </FormLabel>
                       <CardBeneficio
                         id={NaN}
                         categoria={String()}
@@ -208,7 +217,7 @@ export function FormCadastrarBeneficio() {
                     backgroundColor={"#0B1333"}
                     sx={{
                       _hover: {
-                        backgroundColor: "#182A74"
+                        backgroundColor: "#182A74",
                       },
                       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
                     }}
@@ -219,26 +228,31 @@ export function FormCadastrarBeneficio() {
                     Salvar Novo Benefício
                   </Button>
                 </div>
-                <div className={styles.paravoceform} >
-                  <img src="../../images/paravoce-form.png" alt="" width={"400em"} />
+                <div className={styles.paravoceform}>
+                  <img
+                    src="../../images/paravoce-form.png"
+                    alt=""
+                    width={"400em"}
+                  />
                 </div>
-
               </div>
             </form>
           </ModalBody>
 
-
-
-
-
-          <ModalFooter width={"100%"} display={"flex"} justifyContent={"space-around"} position={"absolute"} bottom={0} >
+          <ModalFooter
+            width={"100%"}
+            display={"flex"}
+            justifyContent={"space-around"}
+            position={"absolute"}
+            bottom={0}
+          >
             <Button
               colorScheme="blue"
               onClick={onClose}
               backgroundColor={"#AD1111"}
               sx={{
                 _hover: {
-                  backgroundColor: "#182A74"
+                  backgroundColor: "#182A74",
                 },
                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
               }}
@@ -248,7 +262,7 @@ export function FormCadastrarBeneficio() {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal >
+      </Modal>
     </>
   );
-};
+}

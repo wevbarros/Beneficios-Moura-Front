@@ -4,7 +4,7 @@ import LoginCard from "../components/login/LoginCard";
 import styles from "../styles/login.module.scss";
 
 import Input from "../components/input_login/input";
-import { Button, Stack } from "@chakra-ui/react";
+import { Button, FormControl, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuth } from "../auth/auth";
 
@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [matricula, setMatricula] = useState("");
   const [password, setpassWord] = useState("");
 
-  const hancleSubmit = (e:any) => {
+  const hancleSubmit = (e: any) => {
     e.preventDefault();
 
     const data = {
@@ -34,16 +34,20 @@ export default function LoginPage() {
           Aproveite o que só o Grupo Moura te oferece!
         </h5>
         <form className={styles.form}>
-          <Input
-            type="text"
-            placeholder="Matrícula"
-            onChange={(e) => setMatricula(e.target.value)}
-          />
-          <Input
-            type="password"
-            placeholder="Senha"
-            onChange={(e) => setpassWord(e.target.value)}
-          />
+          <FormControl isRequired>
+            <Input
+              type="text"
+              placeholder="Matrícula"
+              onChange={(e) => setMatricula(e.target.value)}
+            />
+          </FormControl>
+          <FormControl isRequired>
+            <Input
+              type="password"
+              placeholder="Senha"
+              onChange={(e) => setpassWord(e.target.value)}
+            />
+          </FormControl>
           <Link href="" className={styles.recoveryLink}>
             Recuperação de Senha
           </Link>
