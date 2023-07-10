@@ -14,7 +14,7 @@ const JWTDecode = (token: string) => {
 
 const JWTCreate = (payload: string) => {
   try {
-    const token = jwt.sign(payload, secrete, { expiresIn: 3600 });
+    const token = jwt.sign(payload, secrete, { expiresIn: "1h" });
     return token;
   } catch (error) {
     console.error('Erro ao criar o token:', error);

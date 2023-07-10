@@ -1,0 +1,19 @@
+.BlueButton {
+  background-color: #fff;
+  color: #72baf4;
+  margin: 0 auto;
+}
+
+.BlueButton:hover {
+  background-color: #72baf4 !important;
+  color: #fff !important;
+  border-color: #72baf4;
+}
+
+.rodape {
+  background-color: #182a18;
+}
+
+.alignCenter {
+  margin: auto;
+}/*# sourceMappingURL=styles.module.css.map */

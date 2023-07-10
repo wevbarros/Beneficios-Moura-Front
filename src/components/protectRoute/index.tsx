@@ -14,13 +14,16 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const usurario = isLogged();
+    const checkIsLogged = async () => {
+    const usurario = await isLogged();
     if (!usurario) {
       router.replace("/login");
     } else {
       setIsLoading(false);
     }
-  }, [user, router, isLogged]);
+    };
+    checkIsLogged();
+  }, [user, router, isLogged,]);
 
   if (isLoading) {
     return <div>Carregando...</div>;

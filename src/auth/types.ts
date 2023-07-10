@@ -11,6 +11,6 @@ export interface AuthContextType {
   user: User | null;
   login: (matricula: string, password: string) => Promise<void>;
   logout: () => void;
-  isLogged: () => User | null;
+  isLogged: () => Promise<User | null>;
   token: string | null;
 }

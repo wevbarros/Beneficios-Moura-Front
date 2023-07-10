@@ -15,7 +15,7 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => Promise.resolve(),
   logout: () => {},
-  isLogged: () => null,
+  isLogged: () => Promise.resolve(null),
   token: "",
 });
 
@@ -24,17 +24,33 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [token, setToken] = useState("");
   const router = useRouter();
 
-  const isLogged = () => {
+  const isLogged = async (): Promise<User | null> => {
     const cookies = new Cookies();
     const token = cookies.get("moura-pra-voce-cookie");
 
     if (token) {
       const decoded = JWTDecode(token);
       if (decoded) {
-        const user = decoded.user;
-        setUser(user);
-        setToken(token);
-        return user;
+        if (decoded.exp && Date.now() < decoded.exp * 1000 - ( 5 * 60 * 1000 )) {
+          const user = decoded.user;
+          setUser(user);
+          setToken(token);
+          return user;
+        } else {
+          console.log("Token expirado");
+          // cookies.remove("moura-pra-voce-cookie");
+          const response = await api.post("/refreshToken", {
+            Authorization: `Bearer ${token}`,
+          });
+          const newToken = response.data.token;
+          const decoded = JWTDecode(newToken);
+          if (decoded) {
+            setUser(decoded.user);
+            setToken(newToken);
+            cookies.set("moura-pra-voce-cookie", newToken, { path: "/" });
+            return decoded.user;
+          }
+        }
       }
     }
     return null;
