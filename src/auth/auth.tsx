@@ -31,24 +31,32 @@ export function AuthProvider({ children }: AuthProviderProps) {
     if (token) {
       const decoded = JWTDecode(token);
       if (decoded) {
-        if (decoded.exp && Date.now() < decoded.exp * 1000 - ( 5 * 60 * 1000 )) {
+        if (decoded.exp && Date.now() < decoded.exp * 1000 - 5 * 60 * 1000) {
           const user = decoded.user;
           setUser(user);
           setToken(token);
           return user;
         } else {
-          console.log("Token expirado");
-          // cookies.remove("moura-pra-voce-cookie");
-          const response = await api.post("/refreshToken", {
-            Authorization: `Bearer ${token}`,
+          cookies.remove("moura-pra-voce-cookie");
+          const response = await fetch("http://localhost:5218/refreshToken", {
+            method: "POST",
+            headers: {
+              Authorization: `${token}`,
+              "Content-Type": "application/json",
+            },
           });
-          const newToken = response.data.token;
-          const decoded = JWTDecode(newToken);
-          if (decoded) {
-            setUser(decoded.user);
-            setToken(newToken);
-            cookies.set("moura-pra-voce-cookie", newToken, { path: "/" });
-            return decoded.user;
+          if (response.ok) {
+            const data = await response.json();
+            const newToken = data.token;
+            const decoded = JWTDecode(newToken);
+            if (decoded) {
+              setUser(decoded.user);
+              setToken(newToken);
+              cookies.set("moura-pra-voce-cookie", newToken, { path: "/" });
+              return decoded.user;
+            }
+          } else {
+            console.log("Erro na requisição:", response.status);
           }
         }
       }
