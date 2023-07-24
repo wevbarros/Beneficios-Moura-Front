@@ -31,7 +31,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     if (token) {
       const decoded = JWTDecode(token);
       if (decoded) {
-        if (decoded.exp && Date.now() < decoded.exp * 1000 - 5 * 60 * 1000) {
+        if (decoded.exp && Date.now() < decoded.exp * 1000 - (5 * 60 * 1000)) {
           const user = decoded.user;
           setUser(user);
           setToken(token);
