@@ -37,7 +37,7 @@ export default function LoginPage() {
           <FormControl isRequired>
             <Input
               type="text"
-              placeholder="Matrícula"
+              placeholder="Email"
               onChange={(e) => setMatricula(e.target.value)}
             />
           </FormControl>

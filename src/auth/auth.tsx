@@ -3,9 +3,10 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import { Cookies } from "react-cookie";
 import { AuthContextType, User } from "./types";
 import { api } from "../services/api";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { JWTDecode, JWTCreate } from "../utils/JWT";
 import { useRouter } from "next/router";
+import { encode } from "js-base64";
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -31,7 +32,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     if (token) {
       const decoded = JWTDecode(token);
       if (decoded) {
-        if (decoded.exp && Date.now() < decoded.exp * 1000 - (5 * 60 * 1000)) {
+        if (decoded.exp && Date.now() < decoded.exp * 1000 - 5 * 60 * 1000) {
           const user = decoded.user;
           setUser(user);
           setToken(token);
@@ -67,15 +68,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const login = async (matricula: string, password: string) => {
     try {
       const cookies = new Cookies();
-      const response = await api.post("/login", { matricula, password });
-      const token = response.data.token;
-      const decoded = JWTDecode(response.data.token);
 
-      if (decoded) {
-        setUser(decoded.user);
+      const resp = await axios.post("https://gc.moura.com.br/auth", {
+        Authorization: `Basic ${encode(`${matricula}:${password}`)}`,
+      });
+
+      if (resp.status === 200) {
+        const response = await api.post("/login", { matricula, password });
+        const token = response.data.token;
+        const decoded = JWTDecode(response.data.token);
+
+        if (decoded) {
+          setUser(decoded.user);
+        }
+        cookies.set("moura-pra-voce-cookie", token, { path: "/" });
+        router.push("/categorias");
       }
-      cookies.set("moura-pra-voce-cookie", token, { path: "/" });
-      router.push("/categorias");
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         if (error.response) {
