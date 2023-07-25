@@ -30,16 +30,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     if (token) {
       const decoded = JWTDecode(token);
-      alert(decoded);
       if (decoded) {
-        if (decoded.exp && Date.now() < decoded.exp * 1000 - 5 * 60 * 1000) {
+        if (decoded.exp && Date.now() < decoded.exp * 1000 - (5 * 60 * 1000)) {
           const user = decoded.user;
           setUser(user);
           setToken(token);
           return user;
         } else {
           cookies.remove("moura-pra-voce-cookie");
-          const response = await fetch("http://localhost:5218/refreshToken", {
+          const response = await fetch("https://apibeneficiosmoura.azurewebsites.net/refreshToken", {
             method: "POST",
             headers: {
               Authorization: `${token}`,
