@@ -7,7 +7,7 @@ const JWTDecode = (token: string) => {
     const decoded = jwt.verify(token, secrete) as JwtPayload;
     return decoded;
   } catch (error) {
-    console.error();
+    console.error('Erro ao decodificar o token:', error);
     return null;
   }
 }
