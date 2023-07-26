@@ -4,7 +4,7 @@ import { Cookies } from "react-cookie";
 import { AuthContextType, User } from "./types";
 import { api } from "../services/api";
 import { AxiosError } from "axios";
-import { JWTDecode, JWTCreate } from "../utils/JWT";
+import { JWTDecode } from "../utils/JWT";
 import { useRouter } from "next/router";
 
 interface AuthProviderProps {
@@ -29,36 +29,48 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const token = cookies.get("moura-pra-voce-cookie");
 
     if (token) {
-      const decoded = JWTDecode(token);
-      if (decoded) {
-        if (decoded.exp && Date.now() < decoded.exp * 1000 - (5 * 60 * 1000)) {
-          const user = decoded.user;
-          setUser(user);
-          setToken(token);
-          return user;
-        } else {
-          cookies.remove("moura-pra-voce-cookie");
-          const response = await fetch("https://apibeneficiosmoura.azurewebsites.net/refreshToken", {
-            method: "POST",
-            headers: {
-              Authorization: `${token}`,
-              "Content-Type": "application/json",
-            },
-          });
-          if (response.ok) {
-            const data = await response.json();
-            const newToken = data.token;
-            const decoded = JWTDecode(newToken);
-            if (decoded) {
-              setUser(decoded.user);
-              setToken(newToken);
-              cookies.set("moura-pra-voce-cookie", newToken, { path: "/" });
-              return decoded.user;
-            }
+      const response = await fetch("https://apibeneficiosmoura.azurewebsites.net/verifyToken", {
+        method: "POST",
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const decoded = JWTDecode(token);
+        if (decoded) {
+          if (decoded.exp && Date.now() < decoded.exp * 1000 - 5 * 60 * 1000) {
+            const user = decoded.user;
+            setUser(user);
+            setToken(token);
+            return user;
           } else {
-            console.log("Erro na requisição:", response.status);
+            cookies.remove("moura-pra-voce-cookie");
+            const response = await fetch(
+              "https://apibeneficiosmoura.azurewebsites.net/refreshToken",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: `${token}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            if (response.ok) {
+              const data = await response.json();
+              const newToken = data.token;
+              const decoded = JWTDecode(newToken);
+              if (decoded) {
+                setUser(decoded.user);
+                setToken(newToken);
+                cookies.set("moura-pra-voce-cookie", newToken, { path: "/" });
+                return decoded.user;
+              }
+            }
           }
         }
+      } else {
       }
     }
     return null;
