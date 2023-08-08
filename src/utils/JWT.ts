@@ -1,7 +1,5 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-const secrete = 'sua-chave-secreta-com-pelo-menos-32-bytes';
-
 const JWTDecode = (token: string) => {
   try {
     const decoded = jwt.decode(token) as JwtPayload;

@@ -41,11 +41,11 @@ export default function NavBar() {
                 Benefícios
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" href="/gerenciar">
                 Gerenciar Benefícios
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

@@ -66,7 +66,6 @@ export function FormCadastrarBeneficio() {
     formData.append("nome", nome);
     formData.append("categoria", categoria);
     formData.append("descricao", descricao);
-    // formData.append("token", token);
     if (imagem) {
       formData.append("imagem", imagem);
     }
