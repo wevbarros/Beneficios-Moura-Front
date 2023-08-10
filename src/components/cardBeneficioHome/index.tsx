@@ -91,6 +91,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
               whiteSpace={"normal"}
               textAlign={"center"}
               fontSize={{ base: "initial", md: "3xl", lg: "4xl", xl: "4xl" }}
+              wordBreak="break-word"
             >
               {IBeneficio.nome}
             </Text>
