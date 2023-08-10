@@ -3,31 +3,17 @@ import { Pagination, Autoplay } from "swiper";
 import Image from "next/image";
 import { Text, Box, Heading, Stack } from "@chakra-ui/react";
 import styles from "./styles.module.scss";
-
+import 'animate.css';
 import "swiper/css";
 import "swiper/css/pagination";
 
 const slides = [
   {
     id: 1,
-    title: "TotalPass",
-    text: "A TotalPass é o Benefício que dá Foco Total para a Saúde Física e Mental. Comece Hoje!",
-    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/totalpasscover.jpg",
-    alt: "Imagem 1",
-  },
-  {
-    id: 2,
-    title: "Cesta Básica",
-    text: "Cesta basica todos os meses para você e sua família. Aproveite e faça parte da família Mágica",
-    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/bolsaalimentacao.jpg",
-    alt: "Imagem 2",
-  },
-  {
-    id: 3,
-    title: "Material Escolar",
-    text: "Material escolar para seus filhos. Aproveite e faça parte da família Mágica",
-    src: "https://beneficiosmourastorage.blob.core.windows.net/content-beneficios-moura/kitescolar.jpg",
-    alt: "Imagem 3",
+    title: "Bem-Vindo!",
+    text: "O Moura pra Você é um espaço dedicado ao seu bem-estar. Vamos compartilhar os benefícios oferecidos pela Moura aos seus colaboradores e seus familiares, em sinergia com a nossa história e com o nosso jeito de ser, em que fortalecer vínculos garante um futuro melhor. ",
+    src: "../../../images/carousel/blue.jpg",
+    alt: "Background Azul",
   },
 ];
 
@@ -54,7 +40,7 @@ export function Carousel() {
                 className={styles.bgCarousel}
                 style={{
                   backgroundImage: `url(${slide.src})`,
-                  opacity: "0.4",
+                  opacity: "0.2",
                   height: "100%",
                   width: "100%",
                   position: "absolute",
@@ -76,6 +62,7 @@ export function Carousel() {
                 opacity="0.9"
               >
                 <Heading
+                  className="animate__animated animate__fadeInDown"
                   fontSize={{ base: "5.4vh", md: "xxx-large", xl: "8xl" }}
                   color={"#fff"}
                   paddingTop="0.5em"
@@ -85,8 +72,8 @@ export function Carousel() {
                 >
                   {slide.title}
                 </Heading>
-                <Text
-                  fontSize={{ base: "x-large", lg: "x-large", md: "x-large", xl: "xxx-large" }}
+                <Text className="animate__animated animate__fadeInLeftBig"
+                  fontSize={{ base: "x-large", lg: "x-large", md: "x-large", xl: "5vh" }}
                   fontWeight={"light"}
                   color={"#fff"}
                 >
