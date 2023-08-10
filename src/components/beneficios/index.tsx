@@ -12,7 +12,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { useRouter } from "next/router";
-import 'animate.css';
+import "animate.css";
 
 import styles from "./styles.module.scss";
 
@@ -44,10 +44,9 @@ export function Beneficios() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
-  }
-  
+  };
 
   const handleClick = (event: any) => {
     setCurrentPage(Number(event.target.id));
@@ -99,36 +98,43 @@ export function Beneficios() {
               {currentItems.map((beneficio) => (
                 <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
               ))}
-              <Flex justify="center" marginTop={6}>
-                <HStack spacing={2} flexWrap="wrap" maxWidth="100%">
-                  <Button
-                    disabled={currentPage === 1}
-                    onClick={handlePrevClick}
-                    leftIcon={<FaChevronLeft />}
-                    width={{ base: "4vw", md: "4vw", lg: "1vw" }}
-                  ></Button>
-                  {pageNumbers.map((number) => (
+              { output.length > 6 &&
+                <Flex justify="center" marginTop={6}>
+                  <HStack spacing={2} flexWrap="wrap" maxWidth="100%">
                     <Button
-                      key={number}
-                      id={String(number)}
-                      onClick={handleClick}
-                      bg={currentPage === number ? "blue.500" : ""}
-                      color={currentPage === number ? "white" : ""}
-                    >
-                      {number}
-                    </Button>
-                  ))}
-                  <Button
-                    disabled={currentPage === pageNumbers.length}
-                    onClick={handleNextClick}
-                    rightIcon={<FaChevronRight />}
-                    width={{ base: "4vw", md: "4vw", lg: "1vw" }}
-                  ></Button>
-                </HStack>
-              </Flex>
+                      disabled={currentPage === 1}
+                      onClick={handlePrevClick}
+                      leftIcon={<FaChevronLeft />}
+                      width={{ base: "4vw", md: "4vw", lg: "1vw" }}
+                    ></Button>
+                    {pageNumbers.map((number) => (
+                      <Button
+                        key={number}
+                        id={String(number)}
+                        onClick={handleClick}
+                        bg={currentPage === number ? "blue.500" : ""}
+                        color={currentPage === number ? "white" : ""}
+                      >
+                        {number}
+                      </Button>
+                    ))}
+                    <Button
+                      disabled={currentPage === pageNumbers.length}
+                      onClick={handleNextClick}
+                      rightIcon={<FaChevronRight />}
+                      width={{ base: "4vw", md: "4vw", lg: "1vw" }}
+                    ></Button>
+                  </HStack>
+                </Flex>
+              }
             </>
           ) : (
-            <Flex display={"flex"} direction={"column"} justify="center" marginTop={6}>
+            <Flex
+              display={"flex"}
+              direction={"column"}
+              justify="center"
+              marginTop={6}
+            >
               <CardSkeleton />
               <CardSkeleton />
               <CardSkeleton />

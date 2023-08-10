@@ -73,7 +73,7 @@ export function Carousel() {
                   {slide.title}
                 </Heading>
                 <Text className="animate__animated animate__fadeInLeftBig"
-                  fontSize={{ base: "x-large", lg: "x-large", md: "x-large", xl: "5vh" }}
+                  fontSize={{ base: "medium", lg: "x-large", md: "x-large", xl: "5vh" }}
                   fontWeight={"light"}
                   color={"#fff"}
                 >
