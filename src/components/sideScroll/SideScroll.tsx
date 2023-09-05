@@ -25,11 +25,11 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
   });
 
   const isLargeScreen = useMediaQuery({
-    query: '(min-width: 1024px)'
+    query: '(min-width: 1024px) and (max-width: 1279px)'
   });
 
   const isExtraLargeScreen = useMediaQuery({
-    query: '(min-width: 1200px)'
+    query: '(min-width: 1280px)'
   });
 
   let slidesPerSize = 1;
@@ -44,15 +44,15 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
   } else if (isExtraLargeScreen) {
     slidesPerSize = 4;
     spaceBetween = 0;
-    //se output for menor que 4, repita o primeiro item no final
+    // Se output for menor que 4, repita o primeiro item no final
     if (output.length < 4) {
       output = output.concat(output);
     }
-
   } else if (isLargeScreen) {
     slidesPerSize = 3;
-    spaceBetween = 120;
+    spaceBetween = 180; // Altere esse valor para ajustar o espaçamento desejado
   }
+
 
   return ( 
     <>
