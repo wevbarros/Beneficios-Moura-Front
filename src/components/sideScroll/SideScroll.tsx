@@ -1,35 +1,41 @@
-import React from 'react';
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import { Flex, Text } from '@chakra-ui/react'; 
-import { CardBeneficio, CardSkeleton } from '../cardBeneficioHome';
-import styles from './SideScroll.module.scss';
+import { Flex, Text } from "@chakra-ui/react";
+import { CardBeneficio, CardSkeleton } from "../cardBeneficioHome";
+import styles from "./SideScroll.module.scss";
 
-import { useBeneficiosController } from '../../controllers/BeneficiosController';
-import { useMediaQuery } from 'react-responsive';
+import { useBeneficiosController } from "../../controllers/BeneficiosController";
+import { useMediaQuery } from "react-responsive";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-export function SideScroll({categoria, catId} : {categoria: string, catId: string}) {
+export function SideScroll({
+  categoria,
+  catId,
+}: {
+  categoria: string;
+  catId: string;
+}) {
   const { beneficios } = useBeneficiosController();
 
   let output = beneficios.filter((beneficio) => beneficio.categoria == catId);
 
   const isSmallScreen = useMediaQuery({
-    query: '(max-width: 767px)'
+    query: "(max-width: 767px)",
   });
 
   const isMediumScreen = useMediaQuery({
-    query: '(min-width: 768px) and (max-width: 1023px)'
+    query: "(min-width: 768px) and (max-width: 1023px)",
   });
 
   const isLargeScreen = useMediaQuery({
-    query: '(min-width: 1024px) and (max-width: 1279px)'
+    query: "(min-width: 1024px) and (max-width: 1279px)",
   });
 
   const isExtraLargeScreen = useMediaQuery({
-    query: '(min-width: 1280px)'
+    query: "(min-width: 1280px)",
   });
 
   let slidesPerSize = 1;
@@ -53,41 +59,45 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
     spaceBetween = 180; // Altere esse valor para ajustar o espaçamento desejado
   }
 
-
-  return ( 
+  return (
     <>
-        <Flex flexDirection="column">
-          <Text fontSize={{ base: "1.8vh", md: "3xl", lg: "3.2vh", xl: "3.2vh" }} marginLeft={{ base: "4vw", md: "4vw", lg: "1vw"}} marginTop="1" color="#fff">{categoria}</Text>
-            <div className={styles.sideScroll}>
-            <Swiper
-              slidesPerView={slidesPerSize}
-              spaceBetween={spaceBetween}
-              slidesPerGroup={1}
-              modules={[Navigation]}
-              navigation={true}
-            >
-              { output.length > 0 ? (
-                  output.map((beneficio) => (
-                    <SwiperSlide key={Number(beneficio.id)}>
-                      <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
-                    </SwiperSlide>
-                  ))
-                ) : (
-                  <>
-                    <CardSkeleton />
-                    <CardSkeleton />
-                    <CardSkeleton />
-                    <CardSkeleton />
-                    <CardSkeleton />
-                  </>
-                )
-              }
-              <div className="swiper-button-prev" style={{ color: '#fff' }}></div>
-              <div className="swiper-button-next" style={{ color: '#fff' }}></div>
-            </Swiper>
-          </div>
-        </Flex>
+      <Flex flexDirection="column">
+        <Text
+          fontSize={{ base: "1.8vh", md: "3xl", lg: "3.2vh", xl: "3.2vh" }}
+          marginLeft={{ base: "4vw", md: "4vw", lg: "1vw" }}
+          marginTop="1"
+          color="#fff"
+        >
+          {categoria}
+        </Text>
+        <div className={styles.sideScroll}>
+          <Swiper
+            slidesPerView={slidesPerSize}
+            spaceBetween={spaceBetween}
+            slidesPerGroup={1}
+            modules={[Navigation]}
+            navigation={true}
+          >
+            {output.length > 0 ? (
+              output.map((beneficio) => (
+                <SwiperSlide key={Number(beneficio.id)}>
+                  <CardBeneficio key={Number(beneficio.id)} {...beneficio} />
+                </SwiperSlide>
+              ))
+            ) : (
+              <>
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+                <CardSkeleton />
+              </>
+            )}
+            <div className="swiper-button-prev" style={{ color: "#fff" }}></div>
+            <div className="swiper-button-next" style={{ color: "#fff" }}></div>
+          </Swiper>
+        </div>
+      </Flex>
     </>
   );
 }
-
