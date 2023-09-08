@@ -12,7 +12,7 @@ const slides = [
     id: 1,
     title: "Bem-Vindo!",
     text: "O Moura pra Você é um espaço dedicado ao seu bem-estar. Vamos compartilhar os benefícios oferecidos pela Moura aos seus colaboradores e seus familiares, em sinergia com a nossa história e com o nosso jeito de ser, em que fortalecer vínculos garante um futuro melhor.",
-    src: "../../../images/carousel/blue.jpg",
+    src: "../../../images/carousel/blue3.webp",
     alt: "Background Azul",
   },
 ];
