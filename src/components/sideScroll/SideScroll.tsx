@@ -57,7 +57,7 @@ export function SideScroll({categoria, catId} : {categoria: string, catId: strin
   return ( 
     <>
         <Flex flexDirection="column">
-          <Text fontSize={{ base: "inherit", md: "3xl", lg: "3xl"}} marginLeft={{ base: "4vw", md: "4vw", lg: "1vw"}} marginTop="1" color="#fff">{categoria}</Text>
+          <Text fontSize={{ base: "1.8vh", md: "3xl", lg: "3.2vh", xl: "3.2vh" }} marginLeft={{ base: "4vw", md: "4vw", lg: "1vw"}} marginTop="1" color="#fff">{categoria}</Text>
             <div className={styles.sideScroll}>
             <Swiper
               slidesPerView={slidesPerSize}

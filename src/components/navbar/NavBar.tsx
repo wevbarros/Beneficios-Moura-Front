@@ -3,19 +3,18 @@ import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import Script from "next/script";
 import Image from "next/image";
-import 'animate.css'
+import "animate.css";
 
 export default function NavBar() {
   return (
     <nav
       className={`navbar fixed-top navbar-expand-lg navbar-dark ${styles.navBar}`}
     >
-      <div className="container animate__animated animate__fadeInDown" >
+      <div className={`container animate__animated animate__fadeInDown ${styles.navbarContainer}`}>
         <Link className="navbar-brand d-flex align-items-center" href="/">
-          <img id="Logo" src='/images/para-voce.png' alt='Logo Moura' />
-          {/* <img id="Logo" src='/images/Logo-moura.webp' alt='Logo Moura'/> */}
-          {/* <span>Para Você</span> */}
+          <img id="Logo" src="/images/para-voce.png" alt="Logo Moura" />
         </Link>
+        <div className="spacer"></div> {/* Espaço entre a imagem e os itens da navbar */}
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"

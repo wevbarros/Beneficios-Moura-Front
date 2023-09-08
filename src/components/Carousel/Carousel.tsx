@@ -50,7 +50,7 @@ export function Carousel() {
                 className="animate__animated animate__fadeInDown"
                 fontSize={{
                   base: "6vh",
-                  md: "xxx-large",
+                  md: "7xl",
                   xl: "8xl",
                 }}
                 color={"#fff"}

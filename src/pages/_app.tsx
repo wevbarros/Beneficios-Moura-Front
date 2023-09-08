@@ -2,7 +2,7 @@ import '../styles/globals.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ChakraProvider } from '@chakra-ui/react'
 import Script from 'next/script';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/navbar/NavBar';
 import { Footer } from "../components/cardBeneficioBeneficios/Footer";
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
