@@ -19,37 +19,38 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import { useDisclosure } from "@chakra-ui/react";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 import { IBeneficio } from "../../dtos/IBeneficio";
 
 export function CardBeneficio(IBeneficio: IBeneficio) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [urlImage, setUrlImage] = useState("");
-  const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">("inside");
+  const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">(
+    "inside"
+  );
 
   const isSmallScreen = useMediaQuery({
-    query: '(max-width: 767px)'
+    query: "(max-width: 767px)",
   });
 
   const isMediumScreen = useMediaQuery({
-    query: '(min-width: 768px) and (max-width: 1023px)'
+    query: "(min-width: 768px) and (max-width: 1023px)",
   });
 
   const isLargeScreen = useMediaQuery({
-    query: '(min-width: 1024px)'
+    query: "(min-width: 1024px)",
   });
 
   const isExtraLargeScreen = useMediaQuery({
-    query: '(min-width: 1200px)'
+    query: "(min-width: 1200px)",
   });
-
 
   useEffect(() => {
     function setImage(url: string) {
       if (IBeneficio.urlImage.startsWith("https://")) {
         setUrlImage(IBeneficio.urlImage);
-        if( isMediumScreen) {
+        if (isMediumScreen) {
           setScrollBehavior("outside");
         }
       }
@@ -57,7 +58,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
 
     setImage(IBeneficio.urlImage);
   }, [IBeneficio.urlImage, isMediumScreen]);
-  
+
   return (
     <>
       <Link href={""} onClick={onOpen}>
@@ -149,6 +150,18 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
         </ModalContent>
       </Modal>
     </>
+  );
+}
+
+export function InvisibleCard() {
+  return (
+    <Card
+      my={{ base: "2", md: "5", lg: "5", xl: "5" }}
+      mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
+      width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
+      height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
+      visibility={"hidden"}
+    ></Card>
   );
 }
 

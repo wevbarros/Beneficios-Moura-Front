@@ -2,7 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { Flex, Text } from "@chakra-ui/react";
-import { CardBeneficio, CardSkeleton } from "../cardBeneficioHome";
+import {
+  CardBeneficio,
+  CardSkeleton,
+  InvisibleCard,
+} from "../cardBeneficioHome";
 import styles from "./SideScroll.module.scss";
 
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
@@ -50,13 +54,9 @@ export function SideScroll({
   } else if (isExtraLargeScreen) {
     slidesPerSize = 4;
     spaceBetween = 0;
-    // Se output for menor que 4, repita o primeiro item no final
-    if (output.length < 4) {
-      output = output.concat(output);
-    }
   } else if (isLargeScreen) {
     slidesPerSize = 3;
-    spaceBetween = 180; // Altere esse valor para ajustar o espaçamento desejado
+    spaceBetween = 180;
   }
 
   return (
@@ -93,6 +93,9 @@ export function SideScroll({
                 <CardSkeleton />
               </>
             )}
+            <SwiperSlide key="1">
+              <InvisibleCard />
+            </SwiperSlide>
             <div className="swiper-button-prev" style={{ color: "#fff" }}></div>
             <div className="swiper-button-next" style={{ color: "#fff" }}></div>
           </Swiper>
