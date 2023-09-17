@@ -29,7 +29,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const token = cookies.get("moura-pra-voce-cookie");
 
     if (token) {
-      const response = await fetch("https://apibeneficiosmoura.azurewebsites.net/verifyToken", {
+      const response = await fetch("http://localhost:5218/verifyToken", {
         method: "POST",
         headers: {
           Authorization: `${token}`,
