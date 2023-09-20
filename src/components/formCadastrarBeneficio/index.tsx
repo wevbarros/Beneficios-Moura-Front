@@ -70,7 +70,7 @@ export function FormCadastrarBeneficio() {
     }
 
     try {
-      const response: AxiosResponse = await api.post("/cadastrarBeneficio", formData);
+      const response: AxiosResponse = await api.post("/beneficio", formData);
       console.log(response);
       alert("Benefício cadastrado com sucesso!");
     } catch (error) {
@@ -117,10 +117,6 @@ export function FormCadastrarBeneficio() {
         >
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
-
-
-
-
 
           <ModalBody>
             <form onSubmit={handleSubmit} className={styles.fomrbody}>
@@ -226,10 +222,6 @@ export function FormCadastrarBeneficio() {
               </div>
             </form>
           </ModalBody>
-
-
-
-
 
           <ModalFooter width={"100%"} display={"flex"} justifyContent={"space-around"} position={"absolute"} bottom={0} >
             <Button

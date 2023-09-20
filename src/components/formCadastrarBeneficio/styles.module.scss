@@ -32,6 +32,7 @@
 .box2 {
   margin-top: 1.5em;
   display: flex;
+  justify-content: space-around;
 }
 
 .box2 > * {
@@ -41,6 +42,7 @@
 .paravoceform {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   max-width: fit-content;
   min-width: fit-content;
 }

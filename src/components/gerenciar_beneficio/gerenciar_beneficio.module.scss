@@ -1,7 +1,7 @@
 .gradienteAzul {
   background: linear-gradient(180deg, #182a74 40vh, #007dce);
   background-attachment: fixed;
-  min-height: 100vh;
+  height: 95.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,13 +13,13 @@
 
 .card {
   background-color: #FFFFFF;
-  width: 80vw;
-  height: 50vh;
+  width: 85vw;
+  height: 75vh;
   padding: 10px;
   border-radius: 12px;
   position: relative;
+  overflow: scroll;
 }
-
 
 .title {
   text-align: center;

@@ -3,6 +3,9 @@ import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import Script from "next/script";
 import Image from "next/image";
+import { useAuth } from "../auth/auth";
+import { useEffect, useState } from "react";
+import { Cookies } from "react-cookie";
 import 'animate.css'
 
 export default function NavBar() {

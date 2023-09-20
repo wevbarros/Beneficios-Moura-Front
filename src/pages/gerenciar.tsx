@@ -1,4 +1,6 @@
 import Gerenciar from '../components/gerenciar_beneficio'
+import { Beneficios } from "../components/beneficios"
+
 
 
 export default function GerenciarPage() {
@@ -7,6 +9,6 @@ export default function GerenciarPage() {
     <div>
       <Gerenciar title="Lista de Benefícios" />
     </div>
-    
+
   )
 }

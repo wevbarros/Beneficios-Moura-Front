@@ -1,3 +1,5 @@
+'use client'
+
 import '../styles/globals.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ChakraProvider } from '@chakra-ui/react'

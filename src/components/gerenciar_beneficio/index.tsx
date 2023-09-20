@@ -1,16 +1,20 @@
 import { useState } from "react";
 import NavBar from "../NavBar";
 import { FormCadastrarBeneficio } from "../formCadastrarBeneficio";
+import { ListaGerencial } from "../listaGerencial/"
 import styles from "./gerenciar_beneficio.module.scss";
-import { CardBeneficio } from "../cardBeneficioHome";
 import { Button, Stack } from "@chakra-ui/react";
 import error from "next/error";
+import { Beneficios } from "../beneficios"
+import ListaEdicao from "../edit_list";
+
 
 interface GerenciarProps {
   title: string;
 }
 
 export default function Gerenciar({ title }: GerenciarProps) {
+
   return (
     <>
       <div className={styles.gradienteAzul}>
@@ -25,7 +29,9 @@ export default function Gerenciar({ title }: GerenciarProps) {
             className={styles.buttonContainer}
           >
             <FormCadastrarBeneficio />
-          </Stack>
+
+            </Stack>
+            <ListaEdicao />
         </div>
       </div>
     </>
