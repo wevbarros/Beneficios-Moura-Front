@@ -5,9 +5,8 @@ import styles from '../styles/Categorias.module.scss'
 import { useBeneficiosController } from '../controllers/BeneficiosController'
 import { useRouter } from 'next/router';
 import { Carousel } from '../components/Carousel/Carousel';
+import NavBar from '../components/navbar/NavBar';
 import 'animate.css';
-import NavBar from '../components/NavBar';
-
 
 export default function Beneficios() {
 

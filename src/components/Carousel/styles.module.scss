@@ -1,4 +1,17 @@
 .bgCarousel {
   //  background: linear-gradient(180deg, #182A74 49.27% 40vh, #007dcecc 100%);
   background-color: #182a74;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: 47vh;
+  }
+}
+
+@media (min-width: 769px) {
+  .carousel {
+    height: 62vh; /* Altura para dispositivos desktop */
+  }
 }

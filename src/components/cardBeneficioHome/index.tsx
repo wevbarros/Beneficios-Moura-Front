@@ -164,6 +164,18 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
   );
 }
 
+export function InvisibleCard() {
+  return (
+    <Card
+      my={{ base: "2", md: "5", lg: "5", xl: "5" }}
+      mx={{ base: "1", md: "5", lg: "5", xl: "5" }}
+      width={{ base: "29vw", md: "35vw", lg: "35vw", xl: "23vw" }}
+      height={{ base: "19vh", md: "32", lg: "40", xl: "22vh" }}
+      visibility={"hidden"}
+    ></Card>
+  );
+}
+
 export function CardSkeleton() {
   return (
     <Card

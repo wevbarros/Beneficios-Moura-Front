@@ -21,7 +21,11 @@ export default function LoginPage() {
       password: password,
     };
 
-    login(data.matricula, data.password);
+    login(data.matricula, data.password).then((response) => {
+      if (!response) {
+        alert("Email ou senha incorretos"); //criar um modal aqui
+      }
+    });
   };
 
   return (

@@ -13,7 +13,7 @@ interface AuthProviderProps {
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  login: () => Promise.resolve(),
+  login: () => Promise.resolve(false),
   logout: () => {},
   isLogged: () => Promise.resolve(null),
   token: "",
@@ -76,7 +76,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return null;
   };
 
-  const login = async (matricula: string, password: string) => {
+  const login = async (matricula: string, password: string): Promise<boolean> => {
     try {
       const cookies = new Cookies();
 
@@ -89,6 +89,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
       cookies.set("moura-pra-voce-cookie", token, { path: "/" });
       router.push("/categorias");
+      return true;
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         if (error.response) {
@@ -97,6 +98,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       } else {
         console.log(error);
       }
+      return false;
     }
   };
 

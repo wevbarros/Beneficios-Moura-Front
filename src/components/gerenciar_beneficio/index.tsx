@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar";
+import NavBar from "../navbar/NavBar";
 import { FormCadastrarBeneficio } from "../formCadastrarBeneficio";
 import styles from "./gerenciar_beneficio.module.scss";
 import { CardBeneficio } from "../cardBeneficioHome";
-import { Flex, Heading, Stack, Text, Box, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  Box,
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+} from "@chakra-ui/react";
 import error from "next/error";
 import TabelaBeneficios from "../tabelaBeneficios";
 import { IBeneficio } from "../../dtos/IBeneficio";

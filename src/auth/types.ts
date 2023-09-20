@@ -9,7 +9,7 @@ export interface User {
 
 export interface AuthContextType {
   user: User | null;
-  login: (matricula: string, password: string) => Promise<void>;
+  login: (matricula: string, password: string) => Promise<boolean>;
   logout: () => void;
   isLogged: () => Promise<User | null>;
   token: string | null;

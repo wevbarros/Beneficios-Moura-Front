@@ -13,6 +13,7 @@ import {
   Tr,
   Text,
   Grid,
+  Image,
 } from "@chakra-ui/react";
 import { IBeneficio } from "../../dtos/IBeneficio";
 import { FormCadastrarBeneficio } from "../formCadastrarBeneficio";
