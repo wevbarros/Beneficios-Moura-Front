@@ -7,6 +7,7 @@ import Input from "../components/input_login/input";
 import { Button, FormControl, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuth } from "../auth/auth";
+import Swal from 'sweetalert2';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -23,7 +24,13 @@ export default function LoginPage() {
 
     login(data.matricula, data.password).then((response) => {
       if (!response) {
-        alert("Email ou senha incorretos"); //criar um modal aqui
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops... :(',
+          text: 'Email ou senha incorretos!',
+          timer: 5000,
+          showConfirmButton: true,
+        })
       }
     });
   };
