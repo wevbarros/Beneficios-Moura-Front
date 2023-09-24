@@ -8,8 +8,13 @@ import { useAuth } from "../../auth/auth";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const { isLogged } = useAuth();
+  const { isLogged, logout } = useAuth();
   const [show, setShow] = useState(false);
+
+  const handleLogout = async () => {
+    await logout();
+    setShow(false);
+  }
 
   useEffect(() => {
     const checkIsLogged = async () => {
@@ -57,11 +62,18 @@ export default function NavBar() {
               </Link>
             </li>
             {show && (
-              <li className="nav-item">
-                <Link className="nav-link" href="/gerenciar">
-                  Gerenciar
-                </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" href="/gerenciar">
+                    Gerenciar
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" href="/" onClick={() => handleLogout()} >
+                    Logout
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
