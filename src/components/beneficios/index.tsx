@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import 'animate.css';
 
 import styles from "./styles.module.scss";
+import NavBar from "../navbar/NavBar";
 
 export function Beneficios() {
   const router = useRouter();
@@ -70,6 +71,7 @@ export function Beneficios() {
 
   return (
     <>
+      <NavBar />
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
         <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">

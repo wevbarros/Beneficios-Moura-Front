@@ -4,17 +4,33 @@ import styles from "./NavBar.module.scss";
 import Script from "next/script";
 import Image from "next/image";
 import "animate.css";
+import { useAuth } from "../../auth/auth";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
+  const { isLogged } = useAuth();
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const checkIsLogged = async () => {
+      const usurario = await isLogged();
+      usurario ? setShow(true) : setShow(false);
+    };
+    checkIsLogged();
+  }, [isLogged]);
+
   return (
     <nav
       className={`navbar fixed-top navbar-expand-lg navbar-dark ${styles.navBar}`}
     >
-      <div className={`container animate__animated animate__fadeInDown ${styles.navbarContainer}`}>
+      <div
+        className={`container animate__animated animate__fadeInDown ${styles.navbarContainer}`}
+      >
         <Link className="navbar-brand d-flex align-items-center" href="/">
           <img id="Logo" src="/images/para-voce.png" alt="Logo Moura" />
         </Link>
-        <div className="spacer"></div> {/* Espaço entre a imagem e os itens da navbar */}
+        <div className="spacer"></div>{" "}
+        {/* Espaço entre a imagem e os itens da navbar */}
         <button
           className={`navbar-toggler ${styles.semBorda}`}
           data-bs-toggle="collapse"
@@ -40,6 +56,13 @@ export default function NavBar() {
                 Benefícios
               </Link>
             </li>
+            {show && (
+              <li className="nav-item">
+                <Link className="nav-link" href="/gerenciar">
+                  Gerenciar
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

@@ -15,15 +15,15 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   useEffect(() => {
     const checkIsLogged = async () => {
-    const usurario = await isLogged();
-    if (!usurario) {
-      router.replace("/login");
-    } else {
-      setIsLoading(false);
-    }
+      const usurario = await isLogged();
+      if (!usurario) {
+        router.replace("/login");
+      } else {
+        setIsLoading(false);
+      }
     };
     checkIsLogged();
-  }, [user, router, isLogged,]);
+  }, [user, router, isLogged]);
 
   if (isLoading) {
     return <div>Carregando...</div>;

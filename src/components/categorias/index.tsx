@@ -1,11 +1,13 @@
 import styles from './styles.module.scss';
 import Link from "next/link";
 import 'animate.css';
+import NavBar from '../navbar/NavBar';
 
 
 export function Categorias() {
   return (
     <>
+      <NavBar />
       <div className={`${styles.categorias}`}>
         <Link href={`/beneficios?cat=Estar lado a lado&id=1`} className={`${styles.estarLado} animate__animated animate__fadeInLeftBig`}>
           <img className={`${styles.imgparavoce}`} src="./images/logo_lado_a_lado.png" alt="Logo do programa" />
