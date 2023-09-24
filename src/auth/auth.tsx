@@ -76,11 +76,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return null;
   };
 
-  const login = async (matricula: string, password: string): Promise<boolean> => {
+  const login = async (email: string, password: string): Promise<boolean> => {
     try {
       const cookies = new Cookies();
 
-      const response = await api.post("/login", { matricula, password });
+      const response = await api.post("/login", { email, password });
       const token = response.data.token;
       const decoded = JWTDecode(response.data.token);
 

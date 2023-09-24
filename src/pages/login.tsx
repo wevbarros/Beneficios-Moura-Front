@@ -18,11 +18,11 @@ export default function LoginPage() {
     e.preventDefault();
 
     const data = {
-      matricula: matricula,
+      email: matricula,
       password: password,
     };
 
-    login(data.matricula, data.password).then((response) => {
+    login(data.email, data.password).then((response) => {
       if (!response) {
         Swal.fire({
           icon: 'error',
