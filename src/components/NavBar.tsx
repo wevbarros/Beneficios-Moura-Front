@@ -9,6 +9,20 @@ import { Cookies } from "react-cookie";
 import 'animate.css'
 
 export default function NavBar() {
+
+  const { user, isLogged } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
+  let admin = true;
+
+  useEffect(() => {
+    const checkIsLogged = async () => {
+      const usuario = await isLogged();
+      if (!usuario) {
+        admin = true
+      }
+    };
+  })
+  
   return (
     <nav
       className={`navbar fixed-top navbar-expand-lg navbar-dark ${styles.navBar}`}
@@ -44,11 +58,15 @@ export default function NavBar() {
                 Benefícios
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/gerenciar">
-                Gerenciar Benefícios
-              </Link>
-            </li>
+
+            {admin != false &&
+              <li className="nav-item">
+                <Link className="nav-link" href="/gerenciar">
+                  Gerenciar Benefícios
+                </Link>
+              </li>
+            }
+
           </ul>
         </div>
       </div>

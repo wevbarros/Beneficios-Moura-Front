@@ -26,7 +26,7 @@ import { api } from "../../services/api";
 import { AxiosResponse } from "axios";
 import { color } from "framer-motion";
 
-export function FormCadastrarBeneficio() {
+export function FormEditarBeneficio() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState(null);
@@ -63,14 +63,14 @@ export function FormCadastrarBeneficio() {
 
     const formData = new FormData();
     formData.append("nome", nome);
-    // formData.append("categoria", categoria);
-    // formData.append("descricao", descricao);
-    // if (imagem) {
-    //   formData.append("imagem", imagem);
-    // }
+    formData.append("categoria", categoria);
+    formData.append("descricao", descricao);
+    if (imagem) {
+      formData.append("imagem", imagem);
+    }
 
     try {
-      const response: AxiosResponse = await api.post("/beneficios", formData);
+      const response: AxiosResponse = await api.put(`/beneficios/${id}`, formData);
       console.log(response);
       alert("Benefício cadastrado com sucesso!");
     } catch (error) {
@@ -81,23 +81,6 @@ export function FormCadastrarBeneficio() {
 
   return (
     <>
-      <Button
-        bg="#0D1740"
-        colorScheme="none"
-        sx={{
-          _hover: {
-            backgroundColor: "#182A74"
-          },
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
-        }}
-        size="md"
-        width="180px"
-        height="45px"
-        onClick={onOpen}
-      >
-        Adicionar Benefício
-      </Button>
-
       <Modal
         isCentered
         onClose={onClose}
