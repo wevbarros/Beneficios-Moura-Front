@@ -25,16 +25,21 @@ import styles from "./styles.module.scss";
 import { api } from "../../services/api";
 import { AxiosResponse } from "axios";
 import { color } from "framer-motion";
+import { IBeneficio } from "../../dtos/IBeneficio";
+ import Swal from 'sweetalert2';
+import { useAuth } from "../../auth/auth";
 
-export function FormEditarBeneficio() {
-  const [nome, setNome] = useState("");
-  const [descricao, setDescricao] = useState("");
+export function FormEditarBeneficio(beneficio: IBeneficio) {
+  const [nome, setNome] = useState(beneficio.nome);
+  const [descricao, setDescricao] = useState(beneficio.descricao);
   const [imagem, setImagem] = useState(null);
-  const [previewImage, setPreviewImage] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [previewImage, setPreviewImage] = useState(beneficio.urlImage);
+  const [categoria, setCategoria] = useState(beneficio.categoria);
+  const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { token } = useAuth();
+
   const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">(
     "inside"
   );
@@ -63,24 +68,55 @@ export function FormEditarBeneficio() {
 
     const formData = new FormData();
     formData.append("nome", nome);
-    formData.append("categoria", categoria);
-    formData.append("descricao", descricao);
+    formData.append("categoria", String(categoria));
+    formData.append("descricao", String(descricao));
     if (imagem) {
       formData.append("imagem", imagem);
     }
 
     try {
-      const response: AxiosResponse = await api.put(`/beneficios/${id}`, formData);
-      console.log(response);
-      alert("Benefício cadastrado com sucesso!");
+      const response: AxiosResponse = await api.put(
+        `/beneficios/${beneficio.id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log(response);
+      onClose();
+      Swal.fire({
+        icon: "success",
+        title: "Benefício editado com sucesso!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     } catch (error) {
       console.log(error);
-      alert("Erro ao cadastrar benefício!");
+      alert("Erro ao editar benefício!");
+      onClose();
     }
   };
 
+    const categoryPlaceholder = (categoria: string) => {
+    if (categoria === "1") {
+      return "Lado a Lado";
+    } else if (categoria === "2") {
+      return "Ficar Bem";
+    } else if (categoria === "3") {
+      return "Economizar";
+    } else if (categoria === "4") {
+      return "Ficar Saudável";
+    }
+  }
+
   return (
     <>
+      <button onClick={onOpen}>
+        <img src="../../images/icons/editar.png" alt="" width={28} />
+      </button>
       <Modal
         isCentered
         onClose={onClose}
@@ -105,7 +141,7 @@ export function FormEditarBeneficio() {
             <form onSubmit={handleSubmit} className={styles.fomrbody}>
               <div className={styles.box1}>
                 <div className={styles.textoform}>
-                  <FormControl isRequired isInvalid={!!error} >
+                  <FormControl isRequired isInvalid={!!error}>
                     <Input
                       bgColor={"white"}
                       color={"black"}
@@ -118,13 +154,13 @@ export function FormEditarBeneficio() {
                     />
                   </FormControl>
 
-                  <FormControl mt={4} isRequired>
+                  <FormControl mt={4}>
                     <Select
                       onChange={handleCategoryChange}
                       bgColor={"white"}
                       color={"gray"}
                       rounded={"32"}
-                      placeholder="Selecione a Categoria"
+                      placeholder={categoryPlaceholder(String(categoria))}
                     >
                       <option value="1">Lado a Lado</option>
                       <option value="2">Ficar Bem</option>
@@ -133,7 +169,7 @@ export function FormEditarBeneficio() {
                     </Select>
                   </FormControl>
 
-                  <FormControl mt={4} isRequired>
+                  <FormControl mt={4}>
                     <Input
                       className={styles.inputFile}
                       bgColor={"white"}
@@ -165,7 +201,9 @@ export function FormEditarBeneficio() {
                 <div className={styles.previsualizacao}>
                   {previewImage && (
                     <Box mt={2}>
-                      <FormLabel textAlign={"center"} >Pré-Visualização</FormLabel>
+                      <FormLabel textAlign={"center"}>
+                        Pré-Visualização
+                      </FormLabel>
                       <CardBeneficio
                         id={NaN}
                         categoria={String()}
@@ -187,7 +225,7 @@ export function FormEditarBeneficio() {
                     backgroundColor={"#0B1333"}
                     sx={{
                       _hover: {
-                        backgroundColor: "#182A74"
+                        backgroundColor: "#182A74",
                       },
                       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
                     }}
@@ -198,22 +236,31 @@ export function FormEditarBeneficio() {
                     Salvar Novo Benefício
                   </Button>
                 </div>
-                <div className={styles.paravoceform} >
-                  <img src="../../images/paravoce-form.png" alt="" width={"400em"} />
+                <div className={styles.paravoceform}>
+                  <img
+                    src="../../images/paravoce-form.png"
+                    alt=""
+                    width={"400em"}
+                  />
                 </div>
-
               </div>
             </form>
           </ModalBody>
 
-          <ModalFooter width={"100%"} display={"flex"} justifyContent={"space-around"} position={"absolute"} bottom={0} >
+          <ModalFooter
+            width={"100%"}
+            display={"flex"}
+            justifyContent={"space-around"}
+            position={"absolute"}
+            bottom={0}
+          >
             <Button
               colorScheme="blue"
               onClick={onClose}
               backgroundColor={"#AD1111"}
               sx={{
                 _hover: {
-                  backgroundColor: "#182A74"
+                  backgroundColor: "#182A74",
                 },
                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
               }}
@@ -223,7 +270,7 @@ export function FormEditarBeneficio() {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal >
+      </Modal>
     </>
   );
-};
+}
