@@ -32,7 +32,7 @@ export function FormCadastrarBeneficio() {
   const [imagem, setImagem] = useState(null);
   const [previewImage, setPreviewImage] = useState("");
   const [categoria, setCategoria] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [scrollBehavior, setScrollBehavior] = useState<"inside" | "outside">(
@@ -62,22 +62,38 @@ export function FormCadastrarBeneficio() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("nome", nome);
-    // formData.append("categoria", categoria);
-    // formData.append("descricao", descricao);
-    // if (imagem) {
-    //   formData.append("imagem", imagem);
-    // }
+    formData.append("nome", String(nome));
+    formData.append("categoria", String(categoria));
+    formData.append("descricao", String(descricao));
+    if (imagem) {
+      formData.append("imagem", imagem);
+    }
 
     try {
-      const response: AxiosResponse = await api.post("/beneficios", formData);
-      console.log(response);
+      const response: AxiosResponse = await api.post("/beneficios", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+      });
+      // console.log(response);
       alert("Benefício cadastrado com sucesso!");
     } catch (error) {
       console.log(error);
       alert("Erro ao cadastrar benefício!");
     }
   };
+
+  const categoryPlaceholder = (categoria: string) => {
+    if (categoria === "1") {
+      return "Lado a Lado";
+    } else if (categoria === "2") {
+      return "Ficar Bem";
+    } else if (categoria === "3") {
+      return "Economizar";
+    } else if (categoria === "4") {
+      return "Ficar Saudável";
+    }
+  }
 
   return (
     <>
@@ -141,7 +157,7 @@ export function FormCadastrarBeneficio() {
                       bgColor={"white"}
                       color={"gray"}
                       rounded={"32"}
-                      placeholder="Selecione a Categoria"
+                      placeholder={categoryPlaceholder(String(categoria))}
                     >
                       <option value="1">Lado a Lado</option>
                       <option value="2">Ficar Bem</option>
@@ -169,7 +185,7 @@ export function FormCadastrarBeneficio() {
                   <Textarea
                     value={descricao}
                     bgColor={"white"}
-                    color={"black"}
+                    color={"black"} 
                     name="descricao"
                     placeholder="Descrição"
                     height={"44"}
@@ -243,4 +259,4 @@ export function FormCadastrarBeneficio() {
       </Modal >
     </>
   );
-};
+}
