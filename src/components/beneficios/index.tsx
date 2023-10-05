@@ -11,6 +11,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { CardBeneficio, CardSkeleton } from "../cardBeneficioBeneficios";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
+import NavBar from '../../components/NavBar';
 import { useRouter } from "next/router";
 import "animate.css";
 
@@ -71,6 +72,7 @@ export function Beneficios() {
     <>
       <title>Benefícios - Benefícios Moura</title>
       <div className={`${styles.backGround}`}>
+        <NavBar />
         <div className="container min-vh-100 py-5 animate__animated animate__fadeInLeftBig">
           {router.query.cat ? (
             <Text

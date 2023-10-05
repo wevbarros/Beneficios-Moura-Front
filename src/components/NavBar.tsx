@@ -3,9 +3,26 @@ import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import Script from "next/script";
 import Image from "next/image";
+import { useAuth } from "../auth/auth";
+import { useEffect, useState } from "react";
+import { Cookies } from "react-cookie";
 import 'animate.css'
 
 export default function NavBar() {
+
+  const { user, isLogged } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
+  let admin = true;
+
+  useEffect(() => {
+    const checkIsLogged = async () => {
+      const usuario = await isLogged();
+      if (!usuario) {
+        admin = true
+      }
+    };
+  })
+  
   return (
     <nav
       className={`navbar fixed-top navbar-expand-lg navbar-dark ${styles.navBar}`}
@@ -41,6 +58,15 @@ export default function NavBar() {
                 Benefícios
               </Link>
             </li>
+
+            {admin != false &&
+              <li className="nav-item">
+                <Link className="nav-link" href="/gerenciar">
+                  Gerenciar Benefícios
+                </Link>
+              </li>
+            }
+
           </ul>
         </div>
       </div>

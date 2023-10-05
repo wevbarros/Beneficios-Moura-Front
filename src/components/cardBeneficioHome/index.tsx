@@ -49,7 +49,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
     function setImage(url: string) {
       if (IBeneficio.urlImage.startsWith("https://")) {
         setUrlImage(IBeneficio.urlImage);
-        if( isMediumScreen) {
+        if (isMediumScreen) {
           setScrollBehavior("outside");
         }
       }
@@ -57,7 +57,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
 
     setImage(IBeneficio.urlImage);
   }, [IBeneficio.urlImage, isMediumScreen]);
-  
+
   return (
     <>
       <Link href={""} onClick={onOpen}>
@@ -73,7 +73,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           className={styles.card}
         >
           <Image
-            src={`${String(urlImage)}`}
+            src={`${String(IBeneficio.urlImage)}`} // muda para urlImage para não crashar
             width={"300"}
             height={"250"}
             alt={String(IBeneficio.nome)}
@@ -117,7 +117,7 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
           padding={"0"}
         >
           <Image
-            src={`${String(IBeneficio.urlImage)}`}
+            src={`${String(IBeneficio.urlImage)}`} // muda para urlImage para não crashar
             alt={""}
             height={"640"}
             width={"960"}
@@ -142,7 +142,14 @@ export function CardBeneficio(IBeneficio: IBeneficio) {
                 <Link href={"Aqui vai o link do beneficio"}>Acessar</Link>
               </Button>
             )}
-            <Button colorScheme="blue" ml={3} onClick={onClose}>
+            <Button colorScheme="blue" ml={3} onClick={onClose}
+            bg="#0D1740"
+            sx={{
+              _hover: {
+                backgroundColor: "#182A74"
+              },
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.35)",
+            }}>
               Fechar
             </Button>
           </ModalFooter>
