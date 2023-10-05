@@ -2,11 +2,10 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 import { useBeneficiosController } from "../../controllers/BeneficiosController";
 import { IBeneficio } from "../../dtos/IBeneficio";
 import { FormEditarBeneficio } from "../formEditarBeneficio";
-// import FormEditarBeneficio from "../formEditarBeneficio/index.tsx"
+import Swal from 'sweetalert2';
 
 export default function ListaEdicao() {
     const [data, setData] = useState(null);
@@ -15,21 +14,54 @@ export default function ListaEdicao() {
 
     function deleteBeneficio(id: Number) {
         const urlApi = 'https://apibeneficiosmoura.azurewebsites.net/beneficios';
-        axios
-            .delete(`${urlApi}/${id}`)
-            .then(() => {
-                alert("Benefício Removido");
 
-                const beneficios = data.filter(beneficio => beneficio.id !== id);
-                setData(beneficios)
-            })
-            .catch(error => {
-                console.error('Erro ao deletar o benefício:', error);
-            });
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Atenção',
+            text: "Você realmente deseja remover este Benefício?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, quero remover',
+            cancelButtonText: 'Não, manter benefício',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios
+                    .delete(`${urlApi}/${id}`)
+                    .then(() => {
+                        const beneficios = data.filter(beneficio => beneficio.id !== id);
+                        setData(beneficios)
+                    })
+                    .catch(error => {
+                        console.error('Erro ao deletar o benefício:', error);
+                    });
+
+                swalWithBootstrapButtons.fire(
+                    'Removido',
+                    'O Benefício não está mais disponível.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Ação Cancelada',
+                    'O Benefício continua disponível',
+                    'info'
+                )
+            }
+        })
     }
 
     return (
-        <main className={`${styles.listaEdit}`}>
+        <main className={`animate__animated animate__fadeInLeft ${styles.listaEdit}`}>
             {beneficios ? (
                 <ul>
                     {beneficios.map((beneficio: IBeneficio) => (
@@ -59,7 +91,6 @@ export default function ListaEdicao() {
                                     }
                                 })()}
                             </p>
-
                             <div className={`${styles.botoes}`}>
                                 <FormEditarBeneficio {...beneficio} />
                                 <p className={`${styles.trace}`}> | </p>

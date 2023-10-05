@@ -18,7 +18,6 @@ export default function LoginPage() {
                 <form className={styles.form}>
                     <Input type="text" placeholder="Matrícula" />
                     <Input type="password" placeholder="Senha" />
-                    <Link href='' className={styles.recoveryLink}>Recuperação de Senha</Link>
                     <Stack spacing={4} direction='row' align='center' justify='center' className={styles.buttonContainer}>
                         <Button rounded={"92"}  bg="#0D1740" colorScheme='none' size='md' width="180px" height="45px">
                             Entrar

@@ -26,7 +26,7 @@ import { api } from "../../services/api";
 import { AxiosResponse } from "axios";
 import { color } from "framer-motion";
 import { IBeneficio } from "../../dtos/IBeneficio";
- import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { useAuth } from "../../auth/auth";
 
 export function FormEditarBeneficio(beneficio: IBeneficio) {
@@ -233,7 +233,7 @@ export function FormEditarBeneficio(beneficio: IBeneficio) {
                     isLoading={isLoading}
                     type="submit"
                   >
-                    Salvar Novo Benefício
+                    Salvar Alterações
                   </Button>
                 </div>
                 <div className={styles.paravoceform}>

@@ -70,7 +70,7 @@ export function FormCadastrarBeneficio() {
     }
 
     try {
-      const response: AxiosResponse = await api.post("/beneficios", formData, {
+      const response: AxiosResponse = await api.post("/cadastrarBeneficio", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         },
