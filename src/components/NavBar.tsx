@@ -58,15 +58,6 @@ export default function NavBar() {
                 Benefícios
               </Link>
             </li>
-
-            {admin != false &&
-              <li className="nav-item">
-                <Link className="nav-link" href="/gerenciar">
-                  Gerenciar Benefícios
-                </Link>
-              </li>
-            }
-
           </ul>
         </div>
       </div>
